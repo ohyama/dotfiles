@@ -4,6 +4,7 @@ cd `dirname $0`
 
 # zsh
 cp ~/.zshrc ./.zshrc
+cp ~/.zprofile ./.zprofile
 
 # Vim
 cp ~/.vimrc ./.vimrc
