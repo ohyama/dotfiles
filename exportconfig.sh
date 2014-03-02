@@ -7,4 +7,5 @@ cp ~/.zshrc ./.zshrc
 
 # Vim
 cp ~/.vimrc ./.vimrc
-cp -R ~/.vim/ ./.vim/
+cp -R ~/.vim/colors ./.vim/
+
