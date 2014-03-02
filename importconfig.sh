@@ -9,4 +9,3 @@ cp dot.zshrc ~/.zshrc
 cp ./dot.vimrc ~/.vimrc
 cp -R ./dot.vim/ ~/.vim/
 
-source ~/.zshrc
