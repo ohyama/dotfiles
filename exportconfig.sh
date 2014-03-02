@@ -3,8 +3,8 @@
 cd `dirname $0`
 
 # zsh
-cp ~/.zshrc dot.zshrc
+cp ~/.zshrc ./.zshrc
 
 # Vim
-cp ~/.vimrc ./dot.vimrc
-cp -R ~/.vim/ ./dot.vim/
+cp ~/.vimrc ./.vimrc
+cp -R ~/.vim/ ./.vim/
