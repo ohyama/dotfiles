@@ -1,4 +1,5 @@
 set nocompatible
+set backspace=2
 
 """ Search Setting
 set ignorecase
