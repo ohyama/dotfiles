@@ -10,3 +10,6 @@ cp ./.zprofile ~/.zprofile
 cp ./.vimrc ~/.vimrc
 cp -R ./.vim/ ~/.vim/
 
+# Git
+cp ./.gitconfig ~/.gitconfig
+

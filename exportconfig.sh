@@ -10,3 +10,5 @@ cp ~/.zprofile ./.zprofile
 cp ~/.vimrc ./.vimrc
 cp -R ~/.vim/colors ./.vim/
 
+# Git
+cp ~/.gitconfig ./.gitconfig
