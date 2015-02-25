@@ -24,6 +24,17 @@ http://brew.sh/
 % brew install vim --with-lua
 ```
 
+## Node.js
+
+```
+% brew install node
+```
+
+## MongoDB (Optional)
+
+```
+% brew install mongodb
+```
 
 ## Config Import
 
