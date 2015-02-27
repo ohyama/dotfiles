@@ -364,6 +364,12 @@ function _update_vcs_info_msg() {
 }
 add-zsh-hook precmd _update_vcs_info_msg
 
+
+## npm completion
+#
+. <(npm completion)
+
+
 ## load user .zshrc configuration file
 #
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
