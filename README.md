@@ -37,9 +37,11 @@ $ brew install node
 
 packages
 ```
-$ node install -g less
+$ npm install -g less
 
-$ node install -g grunt-cli
+$ npm install -g grunt-cli
+
+$ npm install -g gulp
 ```
 
 
