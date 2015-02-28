@@ -16,7 +16,7 @@ set shiftwidth=4
 set softtabstop=4
 set smartindent 
 set cursorline
-
+set laststatus=2
 
 """ Color Settings
 syntax on
@@ -44,6 +44,9 @@ NeoBundle 'Shougo/neocomplete'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'groenewege/vim-less'
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'osyo-manga/vim-anzu'
+
 
 " Required:
 filetype plugin indent on
@@ -121,4 +124,23 @@ hi IndentGuidesEven ctermbg=237
 au FileType coffee,ruby,javascript,python IndentGuidesEnable
 nmap <silent><Leader>ig <Plug>IndentGuidesToggle
 
+""" Plugin Settings / vim-anzu
+nmap n <Plug>(anzu-n)
+nmap N <Plug>(anzu-N)
+nmap * <Plug>(anzu-star)
+nmap # <Plug>(anzu-sharp)
+augroup vim-anzu
+  autocmd!
+      autocmd CursorHold,CursorHoldI,WinLeave,TabLeave * call anzu#clear_search_status()
+augroup END
+
+""" Plugin Settings / lightline with vim-anzu
+let g:lightline = {
+		\ 'active': {
+		\   'left': [ ['mode', 'paste'], ['readonly', 'filename', 'modified', 'anzu'] ]
+		\ },
+		\ 'component_function': {
+		\	'anzu': 'anzu#search_status'
+		\ }
+		\ }
 
