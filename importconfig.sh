@@ -13,3 +13,6 @@ cp -R ./.vim/ ~/.vim/
 # Git
 cp ./.gitconfig ~/.gitconfig
 
+# tmux
+cp ./.tmux.conf ~/.tmux.conf
+

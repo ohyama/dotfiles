@@ -12,3 +12,6 @@ cp -R ~/.vim/colors ./.vim/
 
 # Git
 cp ~/.gitconfig ./.gitconfig
+
+# tmux
+cp ~/.tmux.conf ./.tmux.conf
