@@ -38,6 +38,8 @@ $ brew install node
 packages
 ```
 $ node install -g less
+
+$ node install -g grunt-cli
 ```
 
 
