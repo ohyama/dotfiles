@@ -43,7 +43,7 @@ $ npm install -g grunt-cli
 
 $ npm install -g gulp
 
-$ npm install -g jslint
+$ npm install -g jshint
 
 $ npm install -g coffee-script
 
