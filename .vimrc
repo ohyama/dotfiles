@@ -46,9 +46,12 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'surround.vim'
 NeoBundle 'tyru/open-browser.vim'
 " HTML/CSS
+NeoBundle 'othree/html5.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'groenewege/vim-less'
 " JavaScript/CoffeeScript
+NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'kchmck/vim-coffee-script'
 " Completion
 NeoBundle 'Shougo/neocomplete'
