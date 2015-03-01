@@ -43,6 +43,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'osyo-manga/vim-anzu'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'surround.vim'
 NeoBundle 'tyru/open-browser.vim'
 " HTML/CSS
 NeoBundle 'mattn/emmet-vim'
