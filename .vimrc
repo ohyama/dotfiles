@@ -39,14 +39,18 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" My Bundles here:
-NeoBundle 'Shougo/neocomplete'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'groenewege/vim-less'
+"" My Bundles here:
+" Basic
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'osyo-manga/vim-anzu'
-
+NeoBundle 'nathanaelkane/vim-indent-guides'
+" HTML/CSS
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'groenewege/vim-less'
+" JavaScript/CoffeeScript
+NeoBundle 'kchmck/vim-coffee-script'
+" Completion
+NeoBundle 'Shougo/neocomplete'
 
 " Required:
 filetype plugin indent on
@@ -54,6 +58,56 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
+
+
+""" Plugin Settings / indent guides
+let g:indent_guides_start_level=2
+let g:indent_guides_auto_colors=0
+let g:indent_guides_enable_on_vim_startup=0
+let g:indent_guides_color_change_percent=20
+let g:indent_guides_guide_size=1
+let g:indent_guides_space_guides=1
+
+hi IndentGuidesOdd  ctermbg=235
+hi IndentGuidesEven ctermbg=237
+au FileType coffee,ruby,javascript,python IndentGuidesEnable
+nmap <silent><Leader>ig <Plug>IndentGuidesToggle
+
+
+""" Plugin Settings / vim-anzu
+nmap n <Plug>(anzu-n)
+nmap N <Plug>(anzu-N)
+nmap * <Plug>(anzu-star)
+nmap # <Plug>(anzu-sharp)
+augroup vim-anzu
+  autocmd!
+      autocmd CursorHold,CursorHoldI,WinLeave,TabLeave * call anzu#clear_search_status()
+augroup END
+
+
+""" Plugin Settings / lightline with vim-anzu
+let g:lightline = {
+		\ 'active': {
+		\   'left': [ ['mode', 'paste'], ['readonly', 'filename', 'modified', 'anzu'] ]
+		\ },
+		\ 'component_function': {
+		\	'anzu': 'anzu#search_status'
+		\ }
+		\ }
+
+""" Plugin Settings / emmet-vim
+let g:user_emmet_leader_key = '<c-e>'
+let g:user_emmet_settings = {
+        \  'html' : {
+		\    'lang' : 'ja',
+		\	 'charset' : 'utf-8',
+        \  },
+        \}
+
+
+""" Plugin Settings / vim-coffee-script
+au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
 
 
 """ Plugin Settings / neocomplete
@@ -99,48 +153,10 @@ inoremap <expr><BS>	neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y> neocomplete#close_popup()
 inoremap <expr><C-e> neocomplete#cancel_popup()
 
-
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-""" Plugin Settings / vim coffee script
-au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
-autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
-
-""" Plugin Settings / indent guides
-let g:indent_guides_start_level=2
-let g:indent_guides_auto_colors=0
-let g:indent_guides_enable_on_vim_startup=0
-let g:indent_guides_color_change_percent=20
-let g:indent_guides_guide_size=1
-let g:indent_guides_space_guides=1
-
-hi IndentGuidesOdd  ctermbg=235
-hi IndentGuidesEven ctermbg=237
-au FileType coffee,ruby,javascript,python IndentGuidesEnable
-nmap <silent><Leader>ig <Plug>IndentGuidesToggle
-
-""" Plugin Settings / vim-anzu
-nmap n <Plug>(anzu-n)
-nmap N <Plug>(anzu-N)
-nmap * <Plug>(anzu-star)
-nmap # <Plug>(anzu-sharp)
-augroup vim-anzu
-  autocmd!
-      autocmd CursorHold,CursorHoldI,WinLeave,TabLeave * call anzu#clear_search_status()
-augroup END
-
-""" Plugin Settings / lightline with vim-anzu
-let g:lightline = {
-		\ 'active': {
-		\   'left': [ ['mode', 'paste'], ['readonly', 'filename', 'modified', 'anzu'] ]
-		\ },
-		\ 'component_function': {
-		\	'anzu': 'anzu#search_status'
-		\ }
-		\ }
 
