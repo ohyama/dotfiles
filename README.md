@@ -50,7 +50,12 @@ $ npm install -g coffee-script
 $ npm install -g coffeelint
 
 $ npm install -g csslint
+
+$ npm install -g yo
+
+$ npm install -g generator-hubot
 ```
+
 
 
 ## MongoDB (Optional)
