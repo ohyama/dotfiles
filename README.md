@@ -48,6 +48,8 @@ $ npm install -g jslint
 $ npm install -g coffee-script
 
 $ npm install -g coffeelint
+
+$ npm install -g csslint
 ```
 
 
