@@ -29,6 +29,12 @@ $ brew install tmux
 $ brew install vim --with-lua
 ```
 
+## Heroku Toolbelt
+
+```
+$ brew install heroku-toolbelt
+```
+
 ## Node.js
 
 ```
