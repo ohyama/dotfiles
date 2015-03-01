@@ -119,7 +119,7 @@ let g:user_emmet_settings = {
 """ Plugin Settings / vim-coffee-script
 au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
 autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
-
+nnoremap <silent> <C-C> :CoffeeCompile vert <CR><C-w>h
 
 """ Plugin Settings / neocomplete
 " Use neocomplete.
