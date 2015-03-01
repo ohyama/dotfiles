@@ -6,7 +6,6 @@ set ignorecase
 set smartcase
 set wrapscan
 
-
 """ Display Settings
 set number
 set title
@@ -44,6 +43,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'osyo-manga/vim-anzu'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'tyru/open-browser.vim'
 " HTML/CSS
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'groenewege/vim-less'
@@ -94,6 +94,13 @@ let g:lightline = {
 		\	'anzu': 'anzu#search_status'
 		\ }
 		\ }
+
+
+""" Plugin Settings / open-browser.vim
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+
 
 """ Plugin Settings / emmet-vim
 let g:user_emmet_leader_key = '<c-e>'
