@@ -21,6 +21,8 @@ $ brew update
 
 ```
 $ brew install tmux
+
+$ brew install reattach-to-user-namespace
 ```
 
 ## Vim
