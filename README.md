@@ -65,6 +65,14 @@ $ npm install -g generator-hubot
 ```
 
 
+## OpenCV (Optional)
+
+```
+$ brew tap homebrew/science
+
+$ brew install openvc
+```
+
 
 ## MongoDB (Optional)
 
