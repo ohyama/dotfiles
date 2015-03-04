@@ -58,10 +58,22 @@ $ npm install -g coffee-script
 $ npm install -g coffeelint
 
 $ npm install -g csslint
+```
 
+
+## Yeoman
+
+```
 $ npm install -g yo
 
+$ npm install -g bower
+```
+
+generator
+```
 $ npm install -g generator-hubot
+
+$ npm install -g generator-gulp-webapp
 ```
 
 
