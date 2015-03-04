@@ -31,6 +31,13 @@ $ brew install reattach-to-user-namespace
 $ brew install vim --with-lua
 ```
 
+## tree 
+
+```
+$ brew install tree
+```
+
+
 ## Heroku Toolbelt
 
 ```
