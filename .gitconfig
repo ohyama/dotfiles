@@ -1,6 +1,6 @@
 [user]
 	name = Ohyama_
-	email = yuki.ohyama+github@gmail.com
+	email = yuki.ohyama@gmail.com
 [core]
 	excludesfile = /Users/ohyama/.gitignore_global
 	editor = vim
