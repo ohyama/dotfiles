@@ -46,6 +46,10 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'surround.vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'scrooloose/syntastic'
+" markdown
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'kannokanno/previm'
+
 " HTML/CSS
 NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
