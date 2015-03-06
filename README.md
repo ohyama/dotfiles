@@ -1,3 +1,4 @@
+# How to install software
 
 ## iTerm2
 
@@ -126,7 +127,9 @@ Or, if you don't want/need launchctl, you can just run:
 $ mongod --config /usr/local/etc/mongod.conf
 ```
 
-## Config Import
+# How to Install dotfiles
+
+## Run import script
 
 ```
 $ git submodule init
