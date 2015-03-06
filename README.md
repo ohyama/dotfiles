@@ -89,9 +89,14 @@ $ npm install -g generator-gulp-webapp
 ```
 $ brew tap homebrew/science
 
-$ brew install openvc
-```
+$ brew install opencv
 
+use node-opencv
+```
+$ brew install pkg-config
+
+$ npm install opencv
+```
 
 ## MongoDB (Optional)
 
