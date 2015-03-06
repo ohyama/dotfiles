@@ -47,7 +47,7 @@ NeoBundle 'surround.vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'scrooloose/syntastic'
 " markdown
-NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'rcmdnk/vim-markdown'
 NeoBundle 'kannokanno/previm'
 
 " HTML/CSS
