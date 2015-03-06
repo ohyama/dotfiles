@@ -84,12 +84,19 @@ $ npm install -g generator-gulp-webapp
 ```
 
 
+## Hexo (Optional)
+
+```
+$ npm install -g hexo-cli
+```
+
 ## OpenCV (Optional)
 
 ```
 $ brew tap homebrew/science
 
 $ brew install opencv
+```
 
 use node-opencv
 ```
