@@ -18,6 +18,12 @@ http://brew.sh/
 $ brew update
 ```
 
+## zsh
+
+```
+brew install zsh
+```
+
 ## tmux
 
 ```
