@@ -44,6 +44,16 @@ $ brew install vim --with-lua
 $ brew install tree
 ```
 
+## wget
+
+```
+$ brew install wget
+```
+
+## ruby
+```
+$ brew install ruby
+```
 
 ## Heroku Toolbelt
 
