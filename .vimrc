@@ -58,6 +58,8 @@ NeoBundle 'groenewege/vim-less'
 " JavaScript/CoffeeScript
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'kchmck/vim-coffee-script'
+" Ruby
+NeoBundle 'vim-ruby/vim-ruby'
 " Completion
 NeoBundle 'Shougo/neocomplete'
 
