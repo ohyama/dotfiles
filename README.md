@@ -54,6 +54,14 @@ $ brew install wget
 ```
 $ brew install ruby
 ```
+packages
+```
+$ sudo gem update --system
+
+$ sudo gem install activerecoard
+
+$ sudo gem install sqlite3
+```
 
 ## Heroku Toolbelt
 
