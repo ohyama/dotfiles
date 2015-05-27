@@ -61,6 +61,8 @@ $ sudo gem update --system
 $ sudo gem install activerecoard
 
 $ sudo gem install sqlite3
+
+$ sudo gem install rails
 ```
 
 ## Heroku Toolbelt
