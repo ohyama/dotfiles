@@ -10,9 +10,9 @@ set wrapscan
 set number
 set title
 set showmatch
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set smartindent 
 set cursorline
 set laststatus=2
@@ -74,6 +74,7 @@ NeoBundleCheck
 """ FileType Setting
 au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
 autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
+autocmd FileType ruby	    setlocal sw=2 sts=2 ts=2 et
 
 """ Plugin Settings / indent guides
 let g:indent_guides_start_level=2
