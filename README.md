@@ -63,6 +63,10 @@ $ sudo gem install activerecoard
 $ sudo gem install sqlite3
 
 $ sudo gem install rails
+
+$ sudo gem install sinatra
+
+$ sudo gem install sinatra-contrib
 ```
 
 ## Heroku Toolbelt
