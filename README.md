@@ -52,7 +52,23 @@ $ brew install wget
 
 ## ruby
 ```
-$ brew install ruby
+$ brew install autoconf
+
+$ brew install rbenv ruby-build
+
+$ cat >>~/.zprofile <<'EOS'
+$ export PATH="$PATH:$HOME/.rbenv/bin"
+$ eval "$(rbenv init -)"
+$ EOS
+
+$ RUBY_CONFIGURE_OPTS="--enable-shared --with-readline-dir=$(brew --prefix readline) --with-openssl-dir=$(brew --prefix openssl)" rbenv install 2.2.2
+
+$ rbenv global 2.2.2
+$ rbenv rehash
+
+$ gem install bundler
+$ rbenv rehash
+$ gem list | grep bundler
 ```
 packages
 ```
