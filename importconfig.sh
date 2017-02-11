@@ -6,11 +6,14 @@ cd `dirname $0`
 cp ./.zshrc ~/.zshrc
 cp ./.zprofile ~/.zprofile
 
-# Vim
+# ssh
+cp ./.ssh/config ~/.ssh/config
+
+# vim
 cp ./.vimrc ~/.vimrc
 cp -R ./.vim/ ~/.vim/
 
-# Git
+# git
 cp ./.gitconfig ~/.gitconfig
 
 # tmux
