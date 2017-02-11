@@ -1,13 +1,4 @@
-# How to install software
-
-## iTerm2
-
-iTerm2
-http://iterm2.com/
-
-iTerm2 Color Scheme
-https://gist.github.com/luan/6362811
-
+# How to install Software for Development
 
 ## Homebrew
 
@@ -18,17 +9,10 @@ http://brew.sh/
 $ brew update
 ```
 
-## zsh
-
-```
-brew install zsh
-```
-
 ## tmux
 
 ```
 $ brew install tmux
-
 $ brew install reattach-to-user-namespace
 ```
 
@@ -36,6 +20,10 @@ $ brew install reattach-to-user-namespace
 
 ```
 $ brew install vim --with-lua
+
+$ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+$ sh ./installer.sh ~/.vim/dein
+$ rm ./installer.sh
 ```
 
 ## tree 
@@ -173,15 +161,11 @@ Or, if you don't want/need launchctl, you can just run:
 $ mongod --config /usr/local/etc/mongod.conf
 ```
 
-# How to Install dotfiles
+# How to install dotfiles
 
 ## Run import script
 
 ```
-$ git submodule init
-
-$ git submodule update
-
 $ sh importconfig.sh
 ```
 
