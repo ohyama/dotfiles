@@ -79,10 +79,15 @@ $ sudo gem install sinatra-contrib
 $ brew install heroku-toolbelt
 ```
 
-## Node.js
+## node.js
 
 ```
-$ brew install node
+$ brew install nvm
+
+$ nvm install v7.1.0
+$ nvm use v7.1.0 --global
+
+$ npm i -g yarn
 ```
 
 packages

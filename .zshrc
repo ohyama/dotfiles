@@ -364,6 +364,12 @@ function _update_vcs_info_msg() {
 }
 add-zsh-hook precmd _update_vcs_info_msg
 
+## nvm
+#
+
+export NVM_DIR="$HOME/.nvm"
+	. "/usr/local/opt/nvm/nvm.sh"
+
 
 ## npm completion
 #
