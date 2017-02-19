@@ -380,3 +380,5 @@ export NVM_DIR="$HOME/.nvm"
 #
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
 
+
+[[ -s "/Users/ohyama/.gvm/scripts/gvm" ]] && source "/Users/ohyama/.gvm/scripts/gvm"

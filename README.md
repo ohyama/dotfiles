@@ -38,6 +38,27 @@ $ brew install tree
 $ brew install wget
 ```
 
+## Heroku Toolbelt
+
+```
+$ brew install heroku-toolbelt
+```
+
+## Go
+
+```
+$ zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+
+$ gvm install go1.7.3 -B
+$ gvm use go1.7.3 --default
+
+$ go get golang.org/x/tools/cmd/goimports
+$ go get -u github.com/golang/lint/golint
+$ go get github.com/tools/godep
+
+$ git config --global url."git@github.com:".insteadOf "https://github.com/"
+```
+
 ## ruby
 ```
 $ brew install autoconf
@@ -71,12 +92,6 @@ $ sudo gem install rails
 $ sudo gem install sinatra
 
 $ sudo gem install sinatra-contrib
-```
-
-## Heroku Toolbelt
-
-```
-$ brew install heroku-toolbelt
 ```
 
 ## node.js
