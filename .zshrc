@@ -364,11 +364,9 @@ function _update_vcs_info_msg() {
 }
 add-zsh-hook precmd _update_vcs_info_msg
 
-## nvm
+## nodebrew
 #
-
-export NVM_DIR="$HOME/.nvm"
-	. "/usr/local/opt/nvm/nvm.sh"
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 
 ## npm completion

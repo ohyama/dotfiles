@@ -13,7 +13,6 @@ $ brew update
 
 ```
 $ brew install tmux
-$ brew install reattach-to-user-namespace
 ```
 
 ## Vim
@@ -97,12 +96,11 @@ $ sudo gem install sinatra-contrib
 ## node.js
 
 ```
-$ brew install nvm
+$ brew install nodebrew
+$ mkdir -p ~/.nodebrew/src
 
-$ nvm install v7.1.0
-$ nvm use v7.1.0 --global
-
-$ npm i -g yarn
+$ nodebrew install-binary latest
+$ nodebrew user v10.0.5
 ```
 
 packages
