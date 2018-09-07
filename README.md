@@ -105,19 +105,9 @@ $ nodebrew user v10.0.5
 
 packages
 ```
-$ npm install -g less
+$ npm install -g webpack
 
-$ npm install -g grunt-cli
-
-$ npm install -g gulp
-
-$ npm install -g jshint
-
-$ npm install -g coffee-script
-
-$ npm install -g coffeelint
-
-$ npm install -g csslint
+$ npm install gulp-cli -g
 ```
 
 
