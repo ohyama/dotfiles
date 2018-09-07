@@ -45,7 +45,7 @@ if dein#load_state('~/.vim/dein')
 
   call dein#add('itchyny/lightline.vim')
   call dein#add('osyo-manga/vim-anzu')
-  call dein#add('surround.vim')
+  call dein#add('vim-scripts/surround.vim')
   call dein#add('tyru/open-browser.vim')
 
 	call dein#add('editorconfig/editorconfig-vim')
