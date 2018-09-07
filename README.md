@@ -100,7 +100,7 @@ $ brew install nodebrew
 $ mkdir -p ~/.nodebrew/src
 
 $ nodebrew install-binary latest
-$ nodebrew user v10.0.5
+$ nodebrew use v10.0.5
 ```
 
 packages
