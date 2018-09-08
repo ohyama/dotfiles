@@ -60,7 +60,7 @@ brew install tree
 
 ## Node.js
 
-Please install Node.js with using nodebrew.
+Please install Node.js with using nodebrew.
 
 ### nodebrew
 
