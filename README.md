@@ -56,6 +56,16 @@ brew install wget
 brew install tree
 ```
 
+## tig
+
+Tig is an ncurses-based text-mode interface for git
+
+https://github.com/jonas/tig
+
+```
+brew install tig
+```
+
 # Programing Languages
 
 ## Node.js
