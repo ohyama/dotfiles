@@ -66,6 +66,12 @@ https://github.com/jonas/tig
 brew install tig
 ```
 
+## direnv
+
+```
+brew install direnv
+```
+
 # Programing Languages
 
 ## Node.js
