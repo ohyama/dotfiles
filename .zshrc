@@ -374,6 +374,10 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 . <(npm completion)
 
 
+## direnv settings
+#
+eval "$(direnv hook zsh)"
+
 ## load user .zshrc configuration file
 #
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
