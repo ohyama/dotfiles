@@ -34,16 +34,6 @@ https://github.com/tmux/tmux
 brew install tmux
 ```
 
-### reattach-to-user-namespace
-
-Notes and workarounds for accessing the Mac OS X pasteboard in tmux sessions.
-
-https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
-
-```
-brew install reattach-to-user-namespace
-```
-
 ## wget
 
 ```
