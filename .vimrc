@@ -29,19 +29,19 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/ohyama/.vim/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=/Users/ohyama/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('~/.vim/dein')
-  call dein#begin('~/.vim/dein')
+if dein#load_state('/Users/ohyama/.cache/dein')
+  call dein#begin('/Users/ohyama/.cache/dein')
 
   " Let dein manage dein
   " Required:
-  call dein#add('~/.vim/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('/Users/ohyama/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-  " Add or remove your plugins here:
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
+  " Add or remove your plugins here like this:
+  "call dein#add('Shougo/neosnippet.vim')
+  "call dein#add('Shougo/neosnippet-snippets')
 
   call dein#add('itchyny/lightline.vim')
   call dein#add('osyo-manga/vim-anzu')
@@ -50,9 +50,6 @@ if dein#load_state('~/.vim/dein')
 
 	call dein#add('editorconfig/editorconfig-vim')
 	call dein#add('scrooloose/syntastic')
-
-  " You can specify revision/branch/tag.
-  "call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
   " Required:
   call dein#end()
