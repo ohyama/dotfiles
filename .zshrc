@@ -18,6 +18,34 @@ esac
 #
 autoload colors
 colors
+
+function precmd() {
+    # Print a newline before the prompt, unless it's the
+    # first prompt in the process.
+    if [ -z "$NEW_LINE_BEFORE_PROMPT" ]; then
+        NEW_LINE_BEFORE_PROMPT=1
+    elif [ "$NEW_LINE_BEFORE_PROMPT" -eq 1 ]; then
+        echo ""
+    fi
+}
+
+function left-prompt {
+    name_t='179m%}'             # user name text clolr
+    name_b='000m%}'             # user name background color
+    path_t='255m%}'             # path text clolr
+    path_b='031m%}'             # path background color
+    arrow='087m%}'              # arrow color
+    text_color='%{\e[38;5;'     # set text color
+    back_color='%{\e[30;48;5;'  # set background color
+    reset='%{\e[0m%}'           # reset
+    sharp='\uE0B0'              # triangle
+  
+    user="${back_color}${name_b}${text_color}${name_t}"
+    dir="${back_color}${path_b}${text_color}${path_t}"
+    echo "${user}%n%#@%m${back_color}${path_b}${text_color}${name_b}${sharp} ${dir}%~${reset}${text_color}${path_b}${sharp}${reset}\n${text_color}${arrow}$ ${reset}"
+}
+
+
 case ${UID} in
 0)
     PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %B%{${fg[red]}%}%/#%{${reset_color}%}%b "
@@ -25,7 +53,7 @@ case ${UID} in
     SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
     ;;
 *)
-    PROMPT="%{${fg[red]}%}%/%%%{${reset_color}%} "
+    PROMPT=`left-prompt`
     PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
     SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 

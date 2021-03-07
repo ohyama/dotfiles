@@ -21,7 +21,7 @@ Homebrew is the missing package manager for macOS.
 http://brew.sh/
 
 ```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
 ## tmux
@@ -31,19 +31,19 @@ tmux is a terminal multiplexer.
 https://github.com/tmux/tmux
 
 ```
-brew install tmux
+$ brew install tmux
 ```
 
 ## wget
 
 ```
-brew install wget
+$ brew install wget
 ```
 
 ## tree 
 
 ```
-brew install tree
+$ brew install tree
 ```
 
 ## tig
@@ -53,13 +53,13 @@ Tig is an ncurses-based text-mode interface for git
 https://github.com/jonas/tig
 
 ```
-brew install tig
+$ brew install tig
 ```
 
 ## direnv
 
 ```
-brew install direnv
+$ brew install direnv
 ```
 
 # Programing Languages
@@ -75,11 +75,11 @@ nodebrew is Node.js version manager.
 https://github.com/hokaccha/nodebrew
 
 ```
-brew install nodebrew
-mkdir -p ~/.nodebrew/src
+$ brew install nodebrew
+$ mkdir -p ~/.nodebrew/src
 
-nodebrew install-binary stable
-nodebrew use v10.10.0
+$ nodebrew install-binary stable
+$ nodebrew use v10.10.0
 ```
 
 ### vue-cli
@@ -89,7 +89,7 @@ Standard Tooling for Vue.js Development.
 https://cli.vuejs.org/
 
 ```
-npm install -g @vue/cli
+$ npm install -g @vue/cli
 ```
 
 # Cloud Services
@@ -107,7 +107,7 @@ hub is a command-line wrapper for git that makes you better at GitHub.
 https://hub.github.com/
 
 ```
-brew install hub
+$ brew install hub
 ```
 
 ## Heroku
@@ -123,7 +123,7 @@ The Heroku Command Line Interface (CLI) makes it easy to create and manage your 
 https://devcenter.heroku.com/articles/heroku-cli
 
 ```
-brew install heroku/brew/heroku
+$ brew install heroku/brew/heroku
 ```
 
 
@@ -143,9 +143,9 @@ Dein.vim is a dark powered Vim/Neovim plugin manager.
 https://github.com/Shougo/dein.vim
 
 ```
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-sh ./installer.sh ~/.vim/dein
-rm ./installer.sh
+$ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+$ sh ./installer.sh ~/.vim/dein
+$ rm ./installer.sh
 ```
 
 
@@ -160,3 +160,18 @@ Download App on this link.
 https://code.visualstudio.com/
 
 
+# Font
+
+## Ricty for Powerline
+
+```
+# install fonts
+$ brew tap sanemat/font
+$ brew install ricty --with-powerline
+
+# copy
+$ cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
+
+# clear cache
+$ fc-cache -vf
+```
