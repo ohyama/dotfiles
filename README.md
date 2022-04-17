@@ -24,26 +24,10 @@ http://brew.sh/
 $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-## tmux
-
-tmux is a terminal multiplexer.
-
-https://github.com/tmux/tmux
-
-```
-$ brew install tmux
-```
-
 ## wget
 
 ```
 $ brew install wget
-```
-
-## tree 
-
-```
-$ brew install tree
 ```
 
 ## tig
@@ -56,12 +40,6 @@ https://github.com/jonas/tig
 $ brew install tig
 ```
 
-## direnv
-
-```
-$ brew install direnv
-```
-
 # Programing Languages
 
 ## Node.js
@@ -70,15 +48,6 @@ Install Node.js with using anyenv.
 
 https://qiita.com/kyosuke5_20/items/eece817eb283fc9d214f
 
-### vue-cli
-
-Standard Tooling for Vue.js Development.
-
-https://cli.vuejs.org/
-
-```
-$ npm install -g @vue/cli
-```
 
 # Cloud Services
 
