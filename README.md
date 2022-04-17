@@ -66,21 +66,9 @@ $ brew install direnv
 
 ## Node.js
 
-Please install Node.js with using nodebrew.
+Install Node.js with using anyenv.
 
-### nodebrew
-
-nodebrew is Node.js version manager.
-
-https://github.com/hokaccha/nodebrew
-
-```
-$ brew install nodebrew
-$ mkdir -p ~/.nodebrew/src
-
-$ nodebrew install-binary stable
-$ nodebrew use v10.10.0
-```
+https://qiita.com/kyosuke5_20/items/eece817eb283fc9d214f
 
 ### vue-cli
 
