@@ -2,7 +2,7 @@
 	name = ohyama
 	email = yuki.ohyama@gmail.com
 [core]
-	excludesfile = /Users/ohyama/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -13,3 +13,5 @@
 	ui = true
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[commit]
+	template = ~/.gitconfig_commit_template

@@ -1,0 +1,32 @@
+# ==== Emojis ====
+# 🐛 :bug: バグ修正
+# ✨ :sparkles: 機能追加・修正
+# 🗑 :wastebasket: 不要な機能の削除
+# 🎨 :art: スタイリングの追加・修正
+# ♻️ :recycle: リファクタリング
+# 🐎 :racehorse: パフォーマンス改善
+# 👮 :cop: セキュリティ関連の修正
+# 👕 :shirt: Lintエラーの対応
+# ✅ :white_check_mark: テストの追加・修正
+# 💚 :green_heart: CIで発生した問題の修正
+# ➕ :heavy_plus_sign: ライブラリ・パッケージの追加
+# ➖ :heavy_minus_sign: ライブラリ・ライブラリの削除
+# 🆙 :up: ライブラリのアップデート
+# 🔧 :wrench: 設定ファイルの修正
+# 📝 :memo: ドキュメント追加・修正
+
+# ==== Format ====
+# :emoji: Subject
+#
+# Commit body...
+
+# ==== The Seven Rules ====
+# 1. Separate subject from body with a blank line
+# 2. Limit the subject line to 50 characters
+# 3. Capitalize the subject line
+# 4. Do not end the subject line with a period
+# 5. Use the imperative mood in the subject line
+# 6. Wrap the body at 72 characters
+# 7. Use the body to explain what and why vs. how
+#
+# How to Write a Git Commit Message http://chris.beams.io/posts/git-commit/
