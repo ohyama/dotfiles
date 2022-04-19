@@ -412,3 +412,4 @@ eval "$(direnv hook zsh)"
 
 
 [[ -s "/Users/ohyama/.gvm/scripts/gvm" ]] && source "/Users/ohyama/.gvm/scripts/gvm"
+eval "$(anyenv init -)"
