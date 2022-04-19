@@ -48,6 +48,11 @@ Install Node.js with using anyenv.
 
 https://qiita.com/kyosuke5_20/items/eece817eb283fc9d214f
 
+設定ファイルをインポートすると、以下のコマンドは `.zshrc` に追加されます。
+
+```
+eval "$(anyenv init -)"
+```
 
 # Cloud Services
 
