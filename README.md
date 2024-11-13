@@ -11,7 +11,6 @@ You install below software development tools and run this script for importing d
 $ sh importconfig.sh
 ```
 
-
 # Commnad Line Tools 
 
 ## Homebrew
@@ -40,15 +39,24 @@ https://github.com/jonas/tig
 $ brew install tig
 ```
 
+## direnv
+
+https://github.com/direnv/direnv
+
+```
+$ brew install direnv
+```
+
+
 # Programing Languages
 
 ## Node.js
 
-Install Node.js with using anyenv.
+Install Node.js with using anyenv and nodenv.
 
 https://qiita.com/kyosuke5_20/items/eece817eb283fc9d214f
 
-設定ファイルをインポートすると、以下のコマンドは `.zshrc` に追加されます。
+If you run the import script, the following commands will be added to `.zshrc` .
 
 ```
 eval "$(anyenv init -)"
@@ -58,13 +66,7 @@ eval "$(anyenv init -)"
 
 ## GitHub
 
-GitHub is a development platform inspired by the way you work.
-
-https://github.com/
-
 ### hub (command line tool)
-
-hub is a command-line wrapper for git that makes you better at GitHub.
 
 https://hub.github.com/
 
@@ -72,68 +74,52 @@ https://hub.github.com/
 $ brew install hub
 ```
 
-## Heroku
+## AWS
 
-Heroku is a cloud platform that lets companies build, deliver, monitor and scale apps.
+### AWS CLI
 
-https://www.heroku.com/
-
-### Heroku Toolbelt (command line tool)
-
-The Heroku Command Line Interface (CLI) makes it easy to create and manage your Heroku apps directly from the terminal. It’s an essential part of using Heroku.
-
-https://devcenter.heroku.com/articles/heroku-cli
+https://aws.amazon.com/jp/cli/
 
 ```
-$ brew install heroku/brew/heroku
+$ brew install awscli
 ```
-
 
 # Editor
 
 ## Vim
 
-Vim is a highly configurable text editor for efficiently creating and changing any kind of text.
-
-https://www.vim.org/
-
-
 ### Dein.vim (plugin manager)
 
-Dein.vim is a dark powered Vim/Neovim plugin manager.
-
 https://github.com/Shougo/dein.vim
+https://github.com/Shougo/dein-installer.vim
 
 ```
-$ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+$ curl https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh > installer.sh
 $ sh ./installer.sh ~/.cache/dein
 $ rm ./installer.sh
 ```
 
-
 # IDE
 
 ## Visual Studio Code
-
-lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux.
-
-Download App on this link.
 
 https://code.visualstudio.com/
 
 
 # Font
 
-## Ricty for Powerline
+## HackGen 
+
+https://github.com/yuru7/HackGen
 
 ```
-# install fonts
-$ brew tap sanemat/font
-$ brew install ricty --with-powerline
-
-# copy
-$ cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
-
-# clear cache
-$ fc-cache -vf
+$ brew install font-hackgen
 ```
+
+### iTerm2 Settings
+
+- Font
+    - HackGen35 Console, Regular, 13px
+- Window size
+    - Columns: 160
+    - Rows: 48 
