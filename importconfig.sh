@@ -16,7 +16,3 @@ cp -R ./.vim/ ~/.vim/
 # git
 cp ./.gitconfig ~/.gitconfig
 cp ./.gitconfig_commit_template ~/.gitconfig_commit_template
-
-# tmux
-cp ./.tmux.conf ~/.tmux.conf
-
