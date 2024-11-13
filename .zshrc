@@ -411,5 +411,3 @@ eval "$(direnv hook zsh)"
 ## load user .zshrc configuration file
 #
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
-
-[[ -s "/Users/ohyama/.gvm/scripts/gvm" ]] && source "/Users/ohyama/.gvm/scripts/gvm"
