@@ -39,7 +39,7 @@ function left-prompt {
     back_color='%{\e[30;48;5;'  # set background color
     reset='%{\e[0m%}'           # reset
     sharp='\uE0B0'              # triangle
-  
+
     user="${back_color}${name_b}${text_color}${name_t}"
     dir="${back_color}${path_b}${text_color}${path_t}"
     echo "${user}%n%#@%m${back_color}${path_b}${text_color}${name_b}${sharp} ${dir}%~${reset}${text_color}${path_b}${sharp}${reset}\n${text_color}${arrow}$ ${reset}"
@@ -392,15 +392,17 @@ function _update_vcs_info_msg() {
 }
 add-zsh-hook precmd _update_vcs_info_msg
 
-## nodebrew
+## anyenv
 #
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+eval "$(anyenv init -)"
 
+## nodenv with anyenv
+#
+export PATH="$HOME/.anyenv/envs/nodenv/shims:$PATH"
 
 ## npm completion
 #
 . <(npm completion)
-
 
 ## direnv settings
 #
@@ -410,6 +412,4 @@ eval "$(direnv hook zsh)"
 #
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
 
-
 [[ -s "/Users/ohyama/.gvm/scripts/gvm" ]] && source "/Users/ohyama/.gvm/scripts/gvm"
-eval "$(anyenv init -)"
