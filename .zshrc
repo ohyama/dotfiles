@@ -408,6 +408,11 @@ export PATH="$HOME/.anyenv/envs/nodenv/shims:$PATH"
 #
 eval "$(direnv hook zsh)"
 
+## docker completion
+#
+source <(docker completion zsh)
+
+
 ## load user .zshrc configuration file
 #
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
