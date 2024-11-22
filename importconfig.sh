@@ -16,3 +16,6 @@ cp -R ./.vim/ ~/.vim/
 # git
 cp ./.gitconfig ~/.gitconfig
 cp ./.gitconfig_commit_template ~/.gitconfig_commit_template
+
+# starship
+cp ./.config/starship.toml ~/.config/starship.toml
