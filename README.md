@@ -113,13 +113,23 @@ https://code.visualstudio.com/
 https://github.com/yuru7/HackGen
 
 ```
-$ brew install font-hackgen
+$ brew install font-hackgen-nerd
 ```
 
-### iTerm2 Settings
+# Terminal
+
+## Starship
+
+https://starship.rs/guide/
+
+```
+$ brew install starship
+```
+
+## iTerm2 Settings
 
 - Font
-    - HackGen35 Console, Regular, 13px
+    - HackGen35 Console NF, Regular, 13px
 - Window size
     - Columns: 160
     - Rows: 48 
