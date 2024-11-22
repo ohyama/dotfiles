@@ -12,6 +12,7 @@ $php\
 [](fg:#212736 bg:#1d2230)\
 $time\
 [ ](fg:#1d2230)\
+$cmd_duration\
 \n$character"""
 
 [directory]
@@ -60,3 +61,9 @@ disabled = false
 time_format = "%T" # Hour:Minute Format
 style = "bg:#1d2230"
 format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+
+[cmd_duration]
+min_time = 1000
+format = '[[$duration](bold yellow)]($style)'
+show_milliseconds = true
+
