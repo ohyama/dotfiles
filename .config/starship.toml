@@ -64,6 +64,6 @@ format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
 
 [cmd_duration]
 min_time = 1000
-format = '[[$duration](bold yellow)]($style)'
+format = '[[$duration](fg:#e0af68)]($style)'
 show_milliseconds = true
 
