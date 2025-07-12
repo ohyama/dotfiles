@@ -29,16 +29,6 @@ $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/inst
 $ brew install wget
 ```
 
-## tig
-
-Tig is an ncurses-based text-mode interface for git
-
-https://github.com/jonas/tig
-
-```
-$ brew install tig
-```
-
 ## direnv
 
 https://github.com/direnv/direnv
@@ -66,12 +56,12 @@ eval "$(anyenv init -)"
 
 ## GitHub
 
-### hub (command line tool)
+### gh
 
-https://hub.github.com/
+https://docs.github.com/ja/github-cli/github-cli/about-github-cli
 
 ```
-$ brew install hub
+$ brew install gh
 ```
 
 ## AWS
@@ -91,13 +81,12 @@ $ brew install awscli
 ### Dein.vim (plugin manager)
 
 https://github.com/Shougo/dein.vim
-https://github.com/Shougo/dein-installer.vim
 
 ```
-$ curl https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh > installer.sh
-$ sh ./installer.sh ~/.cache/dein
-$ rm ./installer.sh
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh)"
 ```
+
+install to `~/.cache/dein/` and use `.vimrc` .
 
 # IDE
 
