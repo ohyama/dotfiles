@@ -64,6 +64,14 @@ https://docs.github.com/ja/github-cli/github-cli/about-github-cli
 $ brew install gh
 ```
 
+### Copilot CLI
+
+https://github.com/github/copilot-cli
+
+```bash
+$ brew install copilot-cli
+```
+
 ## AWS
 
 ### AWS CLI
