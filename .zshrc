@@ -231,8 +231,12 @@ export PATH="$HOME/.anyenv/envs/nodenv/shims:$PATH"
 eval "$(direnv hook zsh)"
 
 ## docker completion
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
 #
-source <(docker completion zsh)
+fpath=(/Users/ohyama/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+
 
 ## Starship
 #
