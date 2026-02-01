@@ -2,6 +2,14 @@
 
 cd `dirname $0`
 
+echo "This will export dotfiles from your home directory to this repository."
+read -p "Continue? (y/N): " -n 1 -r
+echo
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    echo "Canceled."
+    exit 1
+fi
+
 # zsh
 cp ~/.zshrc ./.zshrc
 cp ~/.zprofile ./.zprofile
@@ -19,3 +27,5 @@ cp ~/.gitconfig_commit_template ./.gitconfig_commit_template
 
 # starship
 cp ~/.config/starship.toml ./.config/starship.toml
+
+echo "Done."
