@@ -169,6 +169,7 @@ alias v="vim"
 alias vi="vim"
 
 alias repo-status="~/.my-scripts/repo-status.sh"
+alias repo-update="~/.my-scripts/repo-update.sh"
 
 ## terminal configuration
 #
