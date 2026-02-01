@@ -43,13 +43,13 @@ validate_pattern() {
   
   # 空文字列チェック
   if [[ -z "$pattern" ]]; then
-    echo "エラー: 除外パターンが空です" >&2
+    echo "Error: Exclude pattern is empty" >&2
     return 1
   fi
   
   # 改行を含むパターンを拒否
   if [[ "$pattern" =~ $'\n' ]]; then
-    echo "エラー: 除外パターンに改行を含めることはできません: '$pattern'" >&2
+    echo "Error: Exclude pattern cannot contain newline: '$pattern'" >&2
     return 1
   fi
   
@@ -76,7 +76,7 @@ while [[ $# -gt 0 ]]; do
     -e|--exclude)
       # 次の引数が存在するかチェック
       if [[ -z "${2:-}" ]] || [[ "${2:-}" == -* ]]; then
-        echo "エラー: -e/--exclude オプションには引数が必要です" >&2
+        echo "Error: -e/--exclude option requires an argument" >&2
         exit 1
       fi
       
@@ -109,8 +109,8 @@ while [[ $# -gt 0 ]]; do
       exit 0
       ;;
     *)
-      echo "エラー: 不明なオプション: $1" >&2
-      echo "ヘルプを表示するには -h または --help を使用してください" >&2
+      echo "Error: Unknown option: $1" >&2
+      echo "Use -h or --help to display help" >&2
       exit 1
       ;;
   esac
@@ -118,7 +118,7 @@ done
 
 # 一時ディレクトリを作成
 tmpdir=$(mktemp -d) || {
-  echo "エラー: 一時ディレクトリの作成に失敗しました" >&2
+  echo "Error: Failed to create temporary directory" >&2
   exit 1
 }
 
