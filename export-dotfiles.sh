@@ -25,6 +25,9 @@ cp -R ~/.vim/colors ./.vim/
 cp ~/.gitconfig ./.gitconfig
 cp ~/.gitconfig_commit_template ./.gitconfig_commit_template
 
+# copilot cli
+cp ~/.copilot/mcp-config.json ./.copilot/mcp-config.json
+
 # claude code
 cp ~/.claude/settings.json ./.claude/settings.json
 cp ~/.claude/mcp.json ./.claude/mcp.json

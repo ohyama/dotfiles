@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "notionApi": {
+      "type": "local",
+      "command": "npx",
+      "tools": [
+        "*"
+      ],
+      "args": [
+        "-y",
+        "@notionhq/notion-mcp-server"
+      ],
+      "env": {
+        "NOTION_TOKEN": "YOUR_TOKEN_HERE"
+      }
+    }
+  }
+}
