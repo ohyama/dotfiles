@@ -8,7 +8,7 @@ This repository is a note for my own development. I record development tools and
 You install below software development tools and run this script for importing dotfiles.
 
 ```bash
-$ sh importconfig.sh
+$ sh import-dotfiles.sh
 ```
 
 # Commnad Line Tools 
