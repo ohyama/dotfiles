@@ -116,6 +116,9 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+# 作業ディレクトリを保存（絶対パス）
+WORK_DIR=$(pwd)
+
 # 一時ディレクトリを作成
 tmpdir=$(mktemp -d) || {
   echo "Error: Failed to create temporary directory" >&2
@@ -139,7 +142,8 @@ process_repo() {
   
   cd "$repo_dir" || return
   
-  local repo_name=$(basename "$repo_dir")
+  # 作業ディレクトリからの相対パスを計算
+  local repo_name=$(realpath --relative-to="$WORK_DIR" "$repo_dir" 2>/dev/null || python3 -c "import os.path; print(os.path.relpath('$repo_dir', '$WORK_DIR'))")
   # フルパスをエンコードして一意なファイル名を生成
   local relative_path="${repo_dir/#$HOME/~}"
   local safe_name="${relative_path//\//_}"
@@ -196,6 +200,7 @@ process_repo() {
 # 関数をエクスポート
 export -f process_repo
 export tmpdir
+export WORK_DIR
 
 # find コマンドの引数配列を構築
 find_args=()
