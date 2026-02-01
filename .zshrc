@@ -168,6 +168,8 @@ alias su="su -l"
 alias v="vim"
 alias vi="vim"
 
+alias repo-status="~/.my-scripts/repo-status.sh"
+
 ## terminal configuration
 #
 case "${TERM}" in
@@ -238,7 +240,7 @@ export PATH="$HOME/.local/bin:$PATH"
 #
 fpath=(/Users/ohyama/.docker/completions $fpath)
 autoload -Uz compinit
-compinit
+compinit/
 
 
 ## Starship
