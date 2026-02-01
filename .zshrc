@@ -230,6 +230,10 @@ export PATH="$HOME/.anyenv/envs/nodenv/shims:$PATH"
 #
 eval "$(direnv hook zsh)"
 
+## Claude Code
+#
+export PATH="$HOME/.local/bin:$PATH"
+
 ## docker completion
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 #
