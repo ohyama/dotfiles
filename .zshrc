@@ -235,7 +235,6 @@ eval "$(direnv hook zsh)"
 export PATH="$HOME/.local/bin:$PATH"
 
 ## docker completion
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
 #
 fpath=(/Users/ohyama/.docker/completions $fpath)
 autoload -Uz compinit
