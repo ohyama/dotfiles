@@ -10,7 +10,5 @@
 	ui = true
 [url "git@github.com:"]
 	insteadOf = https://github.com/
-[commit]
-	template = ~/.gitconfig_commit_template
 [fetch]
 	prune = true
