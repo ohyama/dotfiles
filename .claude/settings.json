@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git checkout:*)",
+      "Bash(git fetch:*)",
+      "Bash(git status:*)",
+      "mcp__notionApi__API-retrieve-a-page",
+      "mcp__notionApi__API-get-block-children"
+    ]
+  }
+}

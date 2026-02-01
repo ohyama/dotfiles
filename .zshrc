@@ -168,6 +168,8 @@ alias su="su -l"
 alias v="vim"
 alias vi="vim"
 
+alias claude="claude --append-system-prompt-file ~/.copilot/copilot-instructions.md --mcp-config ~/.claude/mcp.json"
+
 alias repo-status="~/.my-scripts/repo-status.sh"
 alias repo-update="~/.my-scripts/repo-update.sh"
 
