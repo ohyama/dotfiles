@@ -243,8 +243,7 @@ export PATH="$HOME/.local/bin:$PATH"
 #
 fpath=(/Users/ohyama/.docker/completions $fpath)
 autoload -Uz compinit
-compinit/
-
+compinit
 
 ## Starship
 #
