@@ -23,7 +23,6 @@ cp -R ~/.vim/colors ./.vim/
 
 # git
 cp ~/.gitconfig ./.gitconfig
-cp ~/.gitconfig_commit_template ./.gitconfig_commit_template
 
 # copilot cli
 cp ~/.copilot/mcp-config.json ./.copilot/mcp-config.json
