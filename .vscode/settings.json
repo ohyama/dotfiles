@@ -1,0 +1,31 @@
+{
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  },
+  "chat.tools.terminal.autoApprove": {
+    "cd": true,
+    "find": true,
+    "grep": true,
+    "npm audit": true,
+    "npm ci": true,
+    "npm install": true,
+    "npm list": true,
+    "npm ls": true,
+    "npm outdated": true,
+    "npm update": true,
+    "test": true
+  },
+  "chat.tools.terminal.enableAutoApprove": true,
+  "chat.useAgentSkills": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "jest.enable": false,
+  "workbench.browser.enableChatTools": true,
+  "workbench.browser.showInTitleBar": true
+}
