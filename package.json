@@ -1,11 +1,17 @@
 {
   "scripts": {
     "format": "prettier --check .",
-    "format:fix": "prettier --write ."
+    "format:fix": "prettier --write .",
+    "prepare": "[ \"$CI\" = 1 ] || [ \"$CI\" = true ] || husky"
   },
   "devDependencies": {
     "husky": "~9.1",
     "lint-staged": "~16.4",
     "prettier": "~3.8"
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --write --ignore-unknown"
+    ]
   }
 }
