@@ -1,0 +1,4 @@
+{{- $notionToken := promptStringOnce . "notionToken" "Notion API Token" -}}
+
+[data]
+    notionToken = {{ $notionToken | quote }}

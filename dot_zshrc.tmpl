@@ -239,6 +239,10 @@ eval "$(direnv hook zsh)"
 #
 export PATH="$HOME/.local/bin:$PATH"
 
+## Notion MCP
+#
+export NOTION_TOKEN={{ .notionToken | quote }}
+
 ## docker completion
 #
 fpath=(/Users/ohyama/.docker/completions $fpath)
