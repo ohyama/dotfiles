@@ -1,0 +1,66 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+# Xcode ライセンスが未承認の場合は最初にパスワードを確認
+SUDO_PASSWORD=""
+if [ -d "/Applications/Xcode.app" ] && ! xcodebuild -license check 2>/dev/null; then
+  read -r -s -p "[sudo] password for $(whoami): " SUDO_PASSWORD
+  echo
+fi
+
+# Homebrew
+brew bundle --file=/dev/stdin <<EOF
+
+## brews
+{{ range .packages.darwin.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+
+## casks
+{{ range .packages.darwin.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+
+### mas
+{{ range .packages.darwin.mas -}}
+mas {{ .name | quote }}, id: {{ .id }}
+{{ end -}}
+
+EOF
+
+# Xcode
+if [ -d "/Applications/Xcode.app" ]; then
+  if ! xcodebuild -license check 2>/dev/null; then
+    printf '%s\n' "$SUDO_PASSWORD" | sudo -S xcodebuild -license accept 2>/dev/null || true
+  fi
+  unset SUDO_PASSWORD
+  xcodebuild -runFirstLaunch 2>/dev/null || true
+  if ! xcrun simctl list runtimes 2>/dev/null | grep -q "iOS"; then
+    xcodebuild -downloadPlatform iOS 2>/dev/null || true
+  fi
+fi
+
+# anyenv
+eval "$(anyenv init -)"
+if [ ! -d "${XDG_CONFIG_HOME:-${HOME}/.config}/anyenv/anyenv-install" ]; then
+  anyenv install --force-init
+fi
+
+# nodenv
+if [ ! -d "$(anyenv root)/envs/nodenv" ]; then
+  anyenv install nodenv
+  eval "$(anyenv init -)"
+fi
+
+# Node.js
+NODE_VERSION=$(cat "{{ .chezmoi.sourceDir }}/../.node-version")
+if ! nodenv versions --bare | grep -q "$NODE_VERSION"; then
+  nodenv install "$NODE_VERSION"
+  nodenv global "$NODE_VERSION"
+fi
+
+# npm global packages
+{{ range .packages.darwin.npms -}}
+npm install -g {{ . | quote }}
+{{ end -}}
+{{ end -}}

@@ -4,6 +4,7 @@ packages:
       - "anyenv"
       - "awscli"
       - "chezmoi"
+      - "mas"
       - "coderabbitai/tap/git-gtr"
       - "direnv"
       - "gh"
@@ -35,5 +36,7 @@ packages:
       - "tableplus"
       - "visual-studio-code"
       - "windows-app"
+    mas:
+      - { name: "Xcode", id: "497799835" }
     npms:
       - "@anthropic-ai/claude-code"
