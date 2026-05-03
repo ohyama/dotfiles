@@ -1,0 +1,11 @@
+#!/bin/sh
+
+local_email=$(git config --local user.email)
+
+if [ -z "$local_email" ]; then
+  echo "ERROR: .git/config に user.email を設定してください" >&2
+  echo "" >&2
+  echo "  git config --local user.email \"you@example.com\"" >&2
+  echo "" >&2
+  exit 1
+fi

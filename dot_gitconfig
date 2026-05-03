@@ -1,0 +1,23 @@
+[user]
+	name = ohyama
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim
+	hooksPath = ~/.config/git/hooks
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[push]
+	default = simple
+[color]
+	ui = true
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[fetch]
+	prune = true
+[rebase]
+	autoStash = true
+[gtr "editor"]
+	default = vscode
+[gtr "ai"]
+	default = copilot
