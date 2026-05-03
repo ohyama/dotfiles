@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "format": "prettier --check .",
+    "format:fix": "prettier --write ."
+  },
   "devDependencies": {
     "prettier": "~3.8"
   }
