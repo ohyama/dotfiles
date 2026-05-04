@@ -14,7 +14,7 @@
       {
         "type": "command",
         "matcher": "ask_user|exit_plan_mode|task_complete",
-        "bash": "INPUT=$(cat); if command -v jq >/dev/null 2>&1; then NAME=$(printf '%s' \"$INPUT\" | jq -r '.toolName // \"tool\"'); MSG=$(printf '%s' \"$INPUT\" | jq -r 'if (.toolArgs | type) == \"string\" then (try (.toolArgs | fromjson) catch {}) else .toolArgs end | (.question // .summary // .prompt // \"Agent is asking\")' 2>/dev/null); MSG=${MSG:-Agent is asking}; else NAME='ask_user'; MSG='Agent is asking'; fi; NAME=$(printf '%s' \"$NAME\" | tr -d '\\000-\\037\\177' | cut -c1-50); MSG=$(printf '%s' \"$MSG\" | tr -d '\\000-\\037\\177' | cut -c1-200); printf '\\e]777;notify;Copilot CLI (%s);%s\\a' \"$NAME\" \"$MSG\" > /dev/tty 2>/dev/null; exit 0",
+        "bash": "INPUT=$(cat); if command -v jq >/dev/null 2>&1; then NAME=$(printf '%s' \"$INPUT\" | jq -r '.toolName // \"tool\"'); MSG=$(printf '%s' \"$INPUT\" | jq -r 'if (.toolArgs | type) == \"string\" then (try (.toolArgs | fromjson) catch {}) else .toolArgs end | (.question // .summary // .prompt // \"Agent is asking\")' 2>/dev/null); MSG=${MSG:-Agent is asking}; else NAME='tool'; MSG='Agent is asking'; fi; NAME=$(printf '%s' \"$NAME\" | tr -d '\\000-\\037\\177' | cut -c1-50); MSG=$(printf '%s' \"$MSG\" | tr -d '\\000-\\037\\177' | cut -c1-200); printf '\\e]777;notify;Copilot CLI (%s);%s\\a' \"$NAME\" \"$MSG\" > /dev/tty 2>/dev/null; exit 0",
         "timeoutSec": 5
       }
     ],
