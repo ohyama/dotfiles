@@ -1,0 +1,35 @@
+{
+  "renderMarkdown": true,
+  "theme": "auto",
+  "hooks": {
+    "notification": [
+      {
+        "type": "command",
+        "bash": "INPUT=$(cat); if command -v jq >/dev/null 2>&1; then MSG=$(printf '%s' \"$INPUT\" | jq -r '.message // \"Agent needs input\"'); else MSG='Agent needs input'; fi; printf '\\e]777;notify;Copilot CLI;%s\\a' \"$MSG\" > /dev/tty 2>/dev/null || true",
+        "timeoutSec": 5
+      }
+    ],
+    "agentStop": [
+      {
+        "type": "command",
+        "bash": "printf '\\e]777;notify;Copilot CLI;%s\\a' 'Done' > /dev/tty 2>/dev/null || true",
+        "timeoutSec": 3
+      }
+    ],
+    "preToolUse": [
+      {
+        "type": "command",
+        "matcher": "ask_user",
+        "bash": "printf '\\e]777;notify;Copilot CLI;%s\\a' 'Question for you' > /dev/tty 2>/dev/null || true",
+        "timeoutSec": 3
+      }
+    ],
+    "errorOccurred": [
+      {
+        "type": "command",
+        "bash": "printf '\\e]777;notify;Copilot CLI;%s\\a' 'Error occurred' > /dev/tty 2>/dev/null || true",
+        "timeoutSec": 3
+      }
+    ]
+  }
+}
