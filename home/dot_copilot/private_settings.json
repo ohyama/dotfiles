@@ -6,7 +6,7 @@
     "notification": [
       {
         "type": "command",
-        "bash": "INPUT=$(cat); if command -v jq >/dev/null 2>&1; then MSG=$(printf '%s' \"$INPUT\" | jq -r '.message // \"Agent needs input\"'); else MSG='Agent needs input'; fi; MSG=$(printf '%s' \"$MSG\" | tr -d '\\000-\\037\\177' | cut -c1-200); printf '\\e]777;notify;Copilot CLI;%s\\a' \"$MSG\" > /dev/tty 2>/dev/null || true",
+        "bash": "INPUT=$(cat); if command -v jq >/dev/null 2>&1; then MSG=$(printf '%s' \"$INPUT\" | jq -r '.message // \"Agent needs input\"' 2>/dev/null); MSG=${MSG:-Agent needs input}; else MSG='Agent needs input'; fi; MSG=$(printf '%s' \"$MSG\" | tr -d '\\000-\\037\\177' | cut -c1-200); printf '\\e]777;notify;Copilot CLI;%s\\a' \"$MSG\" > /dev/tty 2>/dev/null || true",
         "timeoutSec": 5
       }
     ],
