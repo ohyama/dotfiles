@@ -14,6 +14,7 @@ defaults write com.apple.dock persistent-apps -array
 # アプリを追加する関数（存在するアプリのみ追加）
 add_app() {
   if [ ! -e "$1" ]; then
+    echo "[Warn]: Failed to add to the Dock. This app was not found. : $1" >&2
     return
   fi
   defaults write com.apple.dock persistent-apps -array-add \
