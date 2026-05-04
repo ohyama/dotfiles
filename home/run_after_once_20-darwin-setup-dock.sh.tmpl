@@ -1,0 +1,68 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+# Dock の動作設定
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock magnification -bool true
+defaults write com.apple.dock largesize -int 128
+defaults write com.apple.dock mru-spaces -bool false
+defaults write com.apple.dock show-recents -bool false
+
+# Dock のアプリを全削除
+defaults write com.apple.dock persistent-apps -array
+
+# アプリを追加する関数（存在するアプリのみ追加）
+add_app() {
+  if [ ! -e "$1" ]; then
+    return
+  fi
+  defaults write com.apple.dock persistent-apps -array-add \
+    "<dict>
+      <key>tile-data</key>
+      <dict>
+        <key>file-data</key>
+        <dict>
+          <key>_CFURLString</key>
+          <string>$1</string>
+          <key>_CFURLStringType</key>
+          <integer>0</integer>
+        </dict>
+      </dict>
+    </dict>"
+}
+
+# アプリを順番に追加
+add_app "/System/Applications/Apps.app"
+add_app "/System/Applications/App Store.app"
+add_app "/System/Applications/Photos.app"
+add_app "/Applications/Spotify.app"
+add_app "/Applications/Safari.app"
+add_app "/Applications/Google Chrome.app"
+add_app "/Applications/Firefox.app"
+add_app "/Applications/Claude.app"
+add_app "/System/Applications/Notes.app"
+add_app "/Applications/Notion.app"
+add_app "/Applications/Notion Calendar.app"
+add_app "/Applications/Figma.app"
+add_app "/Applications/Visual Studio Code.app"
+add_app "/Applications/Postman.app"
+add_app "/Applications/TablePlus.app"
+add_app "/Applications/iTerm.app"
+add_app "/Applications/Xcode.app"
+add_app "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
+add_app "/System/Applications/iPhone Mirroring.app"
+add_app "/Applications/Docker.app/Contents/MacOS/Docker Desktop.app"
+add_app "/Applications/Parallels Desktop.app"
+add_app "/Applications/Windows App.app"
+add_app "/Applications/AWS VPN Client/AWS VPN Client.app"
+add_app "/System/Applications/Utilities/Activity Monitor.app"
+add_app "/Applications/MacWinZipper.app"
+add_app "/System/Applications/Messages.app"
+add_app "/Applications/Slack.app"
+add_app "/Applications/1Password.app"
+add_app "/System/Applications/System Settings.app"
+
+# Dock を再起動して設定を反映
+killall Dock
+
+{{ end -}}
