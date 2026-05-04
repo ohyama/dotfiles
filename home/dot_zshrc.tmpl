@@ -135,6 +135,11 @@ eval "$(anyenv init -)"
 ## nodenv with anyenv
 export PATH="$HOME/.anyenv/envs/nodenv/shims:$PATH"
 
+# git-worktree-runner (gtr)
+_gtr_init="${XDG_CACHE_HOME:-$HOME/.cache}/gtr/init-gtr.zsh"
+[[ -f "$_gtr_init" ]] || eval "$(git gtr init zsh)" || true
+source "$_gtr_init" 2>/dev/null || true; unset _gtr_init
+
 ## Claude Code
 export PATH="$HOME/.local/bin:$PATH"
 
