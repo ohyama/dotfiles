@@ -10,6 +10,7 @@ packages:
       - "fzf"
       - "gh"
       - "git-delta"
+      - "neovim"
       - "starship"
       - "tree"
       - "wget"
