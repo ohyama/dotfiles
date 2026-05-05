@@ -1,0 +1,8 @@
+# misc
+.DS_Store
+*.pem
+
+# nvim
+.config/nvim/.git
+.config/nvim/spell/*.spl
+.config/nvim/spell/*.sug
