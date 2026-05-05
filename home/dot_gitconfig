@@ -1,32 +1,40 @@
 [user]
 	name = ohyama
+
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = vim
+	editor = nvim
 	hooksPath = ~/.config/git/hooks
 	pager = delta
+
 [interactive]
 	diffFilter = delta --color-only
+
 [delta]
 	navigate = true
 	side-by-side = true
 	line-numbers = true
+
 [merge]
 	conflictstyle = zdiff3
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+
 [push]
 	default = simple
+
 [color]
 	ui = true
+
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+
 [fetch]
 	prune = true
+
 [rebase]
 	autoStash = true
+
 [gtr "editor"]
 	default = vscode
+
 [gtr "ai"]
 	default = copilot
