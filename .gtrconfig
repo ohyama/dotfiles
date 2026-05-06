@@ -1,0 +1,8 @@
+# .gtrconfig - commit this file to share settings with your team
+
+[hooks]
+    postCreate = npm ci
+
+[defaults]
+    editor = vscode
+    ai = copilot
