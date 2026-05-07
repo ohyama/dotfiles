@@ -132,6 +132,13 @@ alias claude="claude --append-system-prompt-file ~/.copilot/copilot-instructions
 alias repo-status="~/.my-scripts/repo-status.sh"
 alias repo-update="~/.my-scripts/repo-update.sh"
 
+## terminal
+# cmux 経由で起動されたターミナルで cmux 専用の TERMINFO が継承される問題への対策
+# 対策しないと VS Code のターミナルなどで nvim の発色が崩れます
+if [[ "$TERM_PROGRAM" != "ghostty" && -n "${TERMINFO:-}" ]]; then
+  unset TERMINFO
+fi
+
 ## anyenv
 eval "$(anyenv init -)"
 
