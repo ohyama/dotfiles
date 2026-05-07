@@ -22,6 +22,18 @@
   "editor.formatOnSave": true,
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
+  "files.associations": {
+    "*.sh.tmpl": "shellscript",
+    "*.toml": "ini",
+    "*.toml.tmpl": "ini",
+    "**/**/ghostty/config": "ini",
+    "**/private_dot_ssh/private_config": "properties",
+    ".chezmoiignore": "ignore",
+    "dot_gitconfig": "ini",
+    "dot_gitignore": "ignore",
+    "dot_zprofile": "shellscript",
+    "dot_zshrc.tmpl": "shellscript"
+  },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
