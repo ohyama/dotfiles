@@ -20,6 +20,9 @@
       ]
     ],
     "scope-empty": [2, "always"],
-    "subject-case": [0]
+    "subject-case": [0],
+    "header-max-length": [2, "always", 72],
+    "body-max-line-length": [2, "always", 72],
+    "footer-max-line-length": [2, "always", 72]
   }
 }

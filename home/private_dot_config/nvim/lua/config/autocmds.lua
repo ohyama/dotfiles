@@ -11,8 +11,12 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "gitcommit",
   callback = function()
     vim.opt_local.spell = false
+    vim.opt_local.textwidth = 72
+    vim.opt_local.colorcolumn = "72"
     vim.opt_local.formatoptions:append("t") -- textwidth で自動改行
     vim.opt_local.formatoptions:append("m") -- マルチバイト文字の境界で改行可能
     vim.opt_local.formatoptions:append("M") -- マルチバイト結合時にスペースを挿入しない
+    -- gq を textwidth ベースで動かすため formatexpr を空にする
+    vim.opt_local.formatexpr = ""
   end,
 })
