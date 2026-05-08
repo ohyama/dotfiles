@@ -74,7 +74,9 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(
   aws
   brew
+{{- if eq .chezmoi.os "darwin" }}
   direnv
+{{- end }}
   docker
   docker-compose
   gh
@@ -139,11 +141,13 @@ if [[ "$TERM_PROGRAM" != "ghostty" && -n "${TERMINFO:-}" ]]; then
   unset TERMINFO
 fi
 
+{{- if eq .chezmoi.os "darwin" }}
 ## anyenv
 eval "$(anyenv init -)"
 
 ## nodenv with anyenv
 export PATH="$HOME/.anyenv/envs/nodenv/shims:$PATH"
+{{- end }}
 
 # git-worktree-runner (gtr)
 _gtr_init="${XDG_CACHE_HOME:-$HOME/.cache}/gtr/init-gtr.zsh"
