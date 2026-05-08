@@ -6,6 +6,7 @@ packages:
       - "chezmoi"
       - "mas"
       - "coderabbitai/tap/git-gtr"
+      - "devcontainer"
       - "direnv"
       - "fd"
       - "fzf"

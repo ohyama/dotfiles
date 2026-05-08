@@ -7,7 +7,13 @@
 .config/nvim/spell/*.spl
 .config/nvim/spell/*.sug
 
-# macOS only
+# exclude on non-macOS
 {{- if ne .chezmoi.os "darwin" }}
+.config/cmux/**
+.config/ghostty/**
+.config/karabiner/**
+.copilot/settings.json
+.my-scripts/**
 .ssh/config
+.zprofile
 {{- end }}
