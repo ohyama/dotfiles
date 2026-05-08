@@ -1,4 +1,9 @@
-{{- $notionToken := promptStringOnce . "notionToken" "Notion API Token" -}}
+{{- $notionToken := "" -}}
+{{- if stdinIsATTY -}}
+{{-   $notionToken = promptStringOnce . "notionToken" "Notion API Token" -}}
+{{- else -}}
+{{-   $notionToken = get . "notionToken" | default "" -}}
+{{- end -}}
 
 [data]
     notionToken = {{ $notionToken | quote }}
