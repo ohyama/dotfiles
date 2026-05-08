@@ -6,3 +6,8 @@
 .config/nvim/.git
 .config/nvim/spell/*.spl
 .config/nvim/spell/*.sug
+
+# macOS only
+{{- if ne .chezmoi.os "darwin" }}
+.ssh/config
+{{- end }}
