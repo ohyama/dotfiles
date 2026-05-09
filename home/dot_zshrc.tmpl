@@ -159,8 +159,10 @@ source "$_gtr_init" 2>/dev/null || true; unset _gtr_init
 ## Claude Code
 export PATH="$HOME/.local/bin:$PATH"
 
+{{- if not (env "DEVCONTAINER_MANAGED_BY_OHYAMA") }}
 ## Notion MCP
 export NOTION_TOKEN={{ .notionToken | quote }}
+{{- end }}
 
 ## Starship
 eval "$(starship init zsh)"
