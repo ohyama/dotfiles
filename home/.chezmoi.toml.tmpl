@@ -1,4 +1,4 @@
-{{- if not (env "DEVCONTAINER_MANAGED_BY_OHYAMA") }}
+{{- if ne (env "DEVCONTAINER_MANAGED_BY_OHYAMA") "true" }}
 [data]
     notionToken = {{ promptStringOnce . "notionToken" "Notion API Token" | quote }}
 {{ end -}}
