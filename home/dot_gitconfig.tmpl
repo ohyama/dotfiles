@@ -24,9 +24,11 @@
 [color]
 	ui = true
 
+{{- if eq .chezmoi.os "darwin" }}
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 
+{{- end }}
 [rebase]
 	autoStash = true
 
