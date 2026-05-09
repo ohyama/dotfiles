@@ -122,6 +122,12 @@ export LANG=ja_JP.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias vi="nvim"
+alias vim="nvim"
+
+alias repo-status="~/.my-scripts/repo-status.sh"
+alias repo-update="~/.my-scripts/repo-update.sh"
+
 ## Shell options
 setopt nolistbeep
 
@@ -129,15 +135,6 @@ setopt nolistbeep
 if [[ "${DEVCONTAINER_MANAGED_BY_OHYAMA:-}" == "true" ]]; then
   HISTFILE="/command-history/.command_history"
 fi
-
-## Aliases
-alias vi="nvim"
-alias vim="nvim"
-
-alias claude="claude --append-system-prompt-file ~/.copilot/copilot-instructions.md --mcp-config ~/.claude/mcp.json"
-
-alias repo-status="~/.my-scripts/repo-status.sh"
-alias repo-update="~/.my-scripts/repo-update.sh"
 
 ## terminal
 # cmux 経由で起動されたターミナルで cmux 専用の TERMINFO が継承される問題への対策
