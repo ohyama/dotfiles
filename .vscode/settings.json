@@ -30,7 +30,7 @@
     "**/cmux/private_cmux.json": "jsonc",
     "**/private_dot_ssh/private_config": "properties",
     ".chezmoiignore": "ignore",
-    "dot_gitconfig": "ini",
+    "dot_gitconfig.tmpl": "ini",
     "dot_gitignore": "ignore",
     "dot_zprofile": "shellscript",
     "dot_zshrc.tmpl": "shellscript"
