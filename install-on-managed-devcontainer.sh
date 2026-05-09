@@ -3,9 +3,9 @@
 
 set -eu
 
-# 管理対象の Dev Container でない場合はスキップ
-if [[ "${DOTFILES_MANAGED:-}" != "true" ]]; then
-  echo "Not a managed environment. Skipping dotfiles setup."
+# dotfiles を適用しない環境ではスキップ
+if [[ "${DOTFILES_APPLY_OHYAMA:-}" != "true" ]]; then
+  echo "DOTFILES_APPLY_OHYAMA is not set. Skipping dotfiles setup."
   exit 0
 fi
 
