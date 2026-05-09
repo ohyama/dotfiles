@@ -3,9 +3,9 @@
 
 set -eu
 
-# dotfiles を適用しない環境ではスキップ
-if [[ "${DOTFILES_APPLY_OHYAMA:-}" != "true" ]]; then
-  echo "DOTFILES_APPLY_OHYAMA is not set. Skipping dotfiles setup."
+# 管理していない Dev Container の場合はスキップ
+if [[ "${DEVCONTAINER_MANAGED_BY_OHYAMA:-}" != "true" ]]; then
+  echo "DEVCONTAINER_MANAGED_BY_OHYAMA is not set. Skipping dotfiles setup."
   exit 0
 fi
 
