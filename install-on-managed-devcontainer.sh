@@ -9,7 +9,8 @@ if [[ "${DEVCONTAINER_MANAGED_BY_OHYAMA:-}" != "true" ]]; then
   exit 0
 fi
 
-# このスクリプトのあるディレクトリ＝既にクローンされた dotfiles を source として apply
+# Install dotfiles
+# VS Code or @devcontainers/cli の設定で dotfiles は clone 済みの想定
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 chezmoi init --apply --source="$SCRIPT_DIR"
 

@@ -22,6 +22,7 @@ brew install --cask 1password
 echo "Sign in to 1Password desktop and the App Store before proceeding."
 read -p "Press Enter to continue."
 
+# Install dotfiles
 chezmoi init --apply ohyama
 
 # Claude Code / Add MCP server for Notion API
