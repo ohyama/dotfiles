@@ -1,9 +1,0 @@
-{
-  "mcpServers": {
-    "notionApi": {
-      "type": "stdio",
-      "command": "/Users/ohyama/.anyenv/envs/nodenv/shims/npx",
-      "args": ["-y", "@notionhq/notion-mcp-server"]
-    }
-  }
-}
