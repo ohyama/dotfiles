@@ -1,12 +1,7 @@
-{{- $notionToken := "" -}}
-{{- if stdinIsATTY -}}
-{{-   $notionToken = promptStringOnce . "notionToken" "Notion API Token" -}}
-{{- else -}}
-{{-   $notionToken = get . "notionToken" | default "" -}}
-{{- end -}}
-
+{{- if not (env "DEVCONTAINER_MANAGED_BY_OHYAMA") }}
 [data]
-    notionToken = {{ $notionToken | quote }}
+    notionToken = {{ promptStringOnce . "notionToken" "Notion API Token" | quote }}
+{{ end -}}
 
 [diff]
     pager = "delta"
