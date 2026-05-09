@@ -27,6 +27,7 @@
     "*.toml": "ini",
     "*.toml.tmpl": "ini",
     "**/**/ghostty/config": "ini",
+    "**/cmux/private_cmux.json": "jsonc",
     "**/private_dot_ssh/private_config": "properties",
     ".chezmoiignore": "ignore",
     "dot_gitconfig": "ini",
