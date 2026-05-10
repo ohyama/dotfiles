@@ -1,0 +1,88 @@
+{{- $isDevContainer := eq (env "DEVCONTAINER_MANAGED_BY_OHYAMA") "true" -}}
+
+{{- /* --- Color Definitions --- */ -}}
+{{- $seg1Bg   := "#565f89" -}} {{- /* directory background */ -}}
+{{- $seg2Bg   := "#394260" -}} {{- /* git background */ -}}
+{{- $seg3Bg   := "#212736" -}} {{- /* language background */ -}}
+{{- $seg4Bg   := "#1d2230" -}} {{- /* time background */ -}}
+{{- $fgText   := "#e3e5e5" -}} {{- /* directory text */ -}}
+{{- $fgAccent := "#769ff0" -}} {{- /* git/language text */ -}}
+{{- $fgTime   := "#a0a9cb" -}} {{- /* time text */ -}}
+{{- $fgDuration := "#e0af68" -}} {{- /* cmd_duration text */ -}}
+
+{{- if $isDevContainer -}}
+{{- $seg1Bg   = "#3b6148" -}}
+{{- $seg2Bg   = "#2d4a38" -}}
+{{- $seg3Bg   = "#243627" -}}
+{{- $seg4Bg   = "#1d2e22" -}}
+{{- $fgAccent = "#6fbf8a" -}}
+{{- $fgTime   = "#a0cbb0" -}}
+{{- end -}}
+format = """
+[░▒▓]({{ $seg1Bg }})\
+$directory\
+[](fg:{{ $seg1Bg }} bg:{{ $seg2Bg }})\
+$git_branch\
+$git_status\
+[](fg:{{ $seg2Bg }} bg:{{ $seg3Bg }})\
+$nodejs\
+$rust\
+$golang\
+$php\
+[](fg:{{ $seg3Bg }} bg:{{ $seg4Bg }})\
+$time\
+[ ](fg:{{ $seg4Bg }})\
+$cmd_duration\
+\n$character"""
+
+[directory]
+style = "fg:{{ $fgText }} bg:{{ $seg1Bg }}"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:{{ $seg2Bg }}"
+format = '[[ $symbol $branch ](fg:{{ $fgAccent }} bg:{{ $seg2Bg }})]($style)'
+
+[git_status]
+style = "bg:{{ $seg2Bg }}"
+format = '[[($all_status$ahead_behind )](fg:{{ $fgAccent }} bg:{{ $seg2Bg }})]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:{{ $seg3Bg }}"
+format = '[[ $symbol ($version) ](fg:{{ $fgAccent }} bg:{{ $seg3Bg }})]($style)'
+
+[rust]
+symbol = ""
+style = "bg:{{ $seg3Bg }}"
+format = '[[ $symbol ($version) ](fg:{{ $fgAccent }} bg:{{ $seg3Bg }})]($style)'
+
+[golang]
+symbol = ""
+style = "bg:{{ $seg3Bg }}"
+format = '[[ $symbol ($version) ](fg:{{ $fgAccent }} bg:{{ $seg3Bg }})]($style)'
+
+[php]
+symbol = ""
+style = "bg:{{ $seg3Bg }}"
+format = '[[ $symbol ($version) ](fg:{{ $fgAccent }} bg:{{ $seg3Bg }})]($style)'
+
+[time]
+disabled = false
+time_format = "%T" # Hour:Minute:Second Format
+style = "bg:{{ $seg4Bg }}"
+format = '[[  $time ](fg:{{ $fgTime }} bg:{{ $seg4Bg }})]($style)'
+
+[cmd_duration]
+min_time = 1000
+format = '[[$duration](fg:{{ $fgDuration }})]($style)'
+show_milliseconds = true
