@@ -24,11 +24,11 @@
 [color]
 	ui = true
 
-{{- if eq .chezmoi.os "darwin" }}
+{{- if eq (env "MANAGED_DEVCONTAINER_BY_OHYAMA") "true" }}
 [url "git@github.com:"]
 	insteadOf = https://github.com/
-
 {{- end }}
+
 [rebase]
 	autoStash = true
 
