@@ -25,6 +25,9 @@
 	ui = true
 
 {{- if eq (env "MANAGED_DEVCONTAINER_BY_OHYAMA") "true" }}
+[url "https://github.com/"]
+	insteadOf = git@github.com:
+{{- else }}
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 {{- end }}
