@@ -4,8 +4,8 @@
 set -eu
 
 # 管理していない Dev Container の場合はスキップ
-if [[ "${DEVCONTAINER_MANAGED_BY_OHYAMA:-}" != "true" ]]; then
-  echo "DEVCONTAINER_MANAGED_BY_OHYAMA is not set. Skipping dotfiles setup."
+if [[ "${MANAGED_DEVCONTAINER_BY_OHYAMA:-}" != "true" ]]; then
+  echo "MANAGED_DEVCONTAINER_BY_OHYAMA is not set. Skipping dotfiles setup."
   exit 0
 fi
 

@@ -131,7 +131,7 @@ alias repo-update="~/.my-scripts/repo-update.sh"
 ## Shell options
 setopt nolistbeep
 
-{{- if eq (env "DEVCONTAINER_MANAGED_BY_OHYAMA") "true" }}
+{{- if eq (env "MANAGED_DEVCONTAINER_BY_OHYAMA") "true" }}
 # 管理している Dev Container の場合、history を永続ボリュームに保存
 HISTFILE="/command-history/.command_history"
 {{- end }}
@@ -159,7 +159,7 @@ source "$_gtr_init" 2>/dev/null || true; unset _gtr_init
 ## Claude Code
 export PATH="$HOME/.local/bin:$PATH"
 
-{{- if ne (env "DEVCONTAINER_MANAGED_BY_OHYAMA") "true" }}
+{{- if ne (env "MANAGED_DEVCONTAINER_BY_OHYAMA") "true" }}
 ## Notion MCP
 export NOTION_TOKEN={{ .notionToken | quote }}
 {{- end }}
