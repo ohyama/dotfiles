@@ -1,0 +1,32 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        TZ: ${TZ:-Asia/Tokyo}
+        CLAUDE_CODE_VERSION: latest
+        GIT_DELTA_VERSION: 0.18.2
+        ZSH_IN_DOCKER_VERSION: 1.2.0
+    command: sleep infinity
+    environment:
+      CLAUDE_CODE_OAUTH_TOKEN: ${CLAUDE_CODE_OAUTH_TOKEN}
+      CLAUDE_CONFIG_DIR: /home/node/.claude
+      COPILOT_GITHUB_TOKEN: ${COPILOT_GITHUB_TOKEN}
+      GH_TOKEN: ${GH_TOKEN}
+      NODE_OPTIONS: --max-old-space-size=4096
+      NOTION_TOKEN: ${NOTION_TOKEN}
+      POWERLEVEL9K_DISABLE_GITSTATUS: "true"
+    volumes:
+      - ${PROJECT_ROOT_DIR}:${PROJECT_ROOT_DIR}:delegated
+      - claude-code-config:/home/node/.claude
+      - command-history:/command-history
+      - copilot-cli-config:/home/node/.copilot
+
+volumes:
+  claude-code-config:
+    name: ${PROJECT_NAME}-claude-code-config
+  command-history:
+    name: ${PROJECT_NAME}-command-history
+  copilot-cli-config:
+    name: ${PROJECT_NAME}-copilot-cli-config
