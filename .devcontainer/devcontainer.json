@@ -1,0 +1,58 @@
+{
+  "name": "dotfiles (${localWorkspaceFolderBasename})",
+  "dockerComposeFile": "compose.yml",
+  "service": "app",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code",
+        "bradlc.vscode-tailwindcss",
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "GitHub.vscode-github-actions",
+        "GraphQL.vscode-graphql",
+        "ms-ceintl.vscode-language-pack-ja",
+        "ms-vsliveshare.vsliveshare",
+        "oderwat.indent-rainbow",
+        "stylelint.vscode-stylelint",
+        "vitest.explorer",
+        "vscode-icons-team.vscode-icons",
+        "wix.vscode-import-cost"
+      ],
+      "settings": {
+        "dev.containers.copyGitConfig": false,
+        "extensions.ignoreRecommendations": true,
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+          },
+          "zsh": {
+            "path": "zsh"
+          }
+        }
+      }
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers-extra/features/fzf:1": {},
+    "ghcr.io/devcontainers/features/copilot-cli:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/node:2": {
+      "version": "24.13.1"
+    }
+  },
+  "containerEnv": {
+    "MANAGED_DEVCONTAINER": "true",
+    "MANAGED_DEVCONTAINER_BY_OHYAMA": "true"
+  },
+  "remoteUser": "node",
+  "workspaceFolder": "${localWorkspaceFolder}",
+  "initializeCommand": ".devcontainer/init-env.sh",
+  "postStartCommand": {
+    "git-credential": "git config --global credential.https://github.com.helper '!f() { echo \"username=x-access-token\"; echo \"password=${GH_TOKEN}\"; }; f'"
+  },
+  "waitFor": "postStartCommand"
+}
