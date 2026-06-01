@@ -19,7 +19,7 @@ fi
 # Docker Compose のプロジェクト名
 # プロジェクト名は小文字英数字・ハイフン・アンダースコアのみ許可されるため変換する
 BRANCH_NAME="$(git rev-parse --abbrev-ref HEAD)"
-COMPOSE_PROJECT_NAME="${PROJECT_NAME}_$(echo "${BRANCH_NAME}" | tr '[:upper:]' '[:lower:]' | sed 's|/|-|g' | sed 's/[^a-z0-9_-]//g')"
+COMPOSE_PROJECT_NAME="$(echo "${PROJECT_NAME}_${BRANCH_NAME}" | tr '[:upper:]' '[:lower:]' | sed 's|/|-|g' | sed 's/[^a-z0-9_-]//g')"
 
 # プロジェクトディレクトリ全体をマウントするため、メインワークツリーの親ディレクトリを取得する
 # GIT_COMMON_DIR (.git) → メインワークツリー → プロジェクトルートディレクトリ
