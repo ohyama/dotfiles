@@ -1,5 +1,15 @@
+# ------------------------------------------------
+# Project Settings
+# ------------------------------------------------
+
+# Add project-specific environment variables here.
+
+# ------------------------------------------------
+# Dev Container Settings
+# ------------------------------------------------
+
 # Project Name
-PROJECT_NAME="YOUR_PROJECT_NAME_HERE"
+PROJECT_NAME="dotfiles"
 
 # GitHub
 GH_TOKEN="YOUR_TOKEN_HERE"
