@@ -1,7 +1,6 @@
 {
   "renderMarkdown": true,
   "theme": "auto",
-
   "hooks": {
     "notification": [
       {
@@ -32,5 +31,6 @@
         "timeoutSec": 3
       }
     ]
-  }
+  },
+  "banner": "always"
 }
