@@ -64,6 +64,13 @@ fi
 npm install -g {{ . | quote }}
 {{ end -}}
 
+# git-worktree-runner
+GWT_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/git-worktree-runner"
+if [ ! -d "$GWT_DIR" ]; then
+  git clone https://github.com/coderabbitai/git-worktree-runner.git "$GWT_DIR"
+  bash "$GWT_DIR/install.sh"
+fi
+
 # LazyVim
 if [ ! -d "${XDG_CONFIG_HOME:-${HOME}/.config}/nvim" ]; then
   git clone https://github.com/LazyVim/starter "${XDG_CONFIG_HOME:-${HOME}/.config}/nvim"
