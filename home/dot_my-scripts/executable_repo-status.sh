@@ -189,8 +189,8 @@ process_worktree() {
 
   # ステージ/アンステージ/アントラックをカウント
   local staged unstaged untracked
-  staged=$(printf '%s\n' "$status_output" | grep -c '^[MADRCU]')
-  unstaged=$(printf '%s\n' "$status_output" | grep -c '^.[MADRCU]')
+  staged=$(printf '%s\n' "$status_output" | grep -c '^[MTADRCU]')
+  unstaged=$(printf '%s\n' "$status_output" | grep -c '^.[MTADRCU]')
   untracked=$(printf '%s\n' "$status_output" | grep -c '^??')
 
   # 変更数を統合表記に（0 は省略、クリーンなら空）
@@ -258,12 +258,12 @@ process_repo() {
 
   # 作業ディレクトリからの相対パスを計算（表示名）
   local repo_name
-  repo_name=$(realpath --relative-to="$WORK_DIR" "$repo_dir" 2>/dev/null || python3 -c "import os.path; print(os.path.relpath('$repo_dir', '$WORK_DIR'))")
+  repo_name=$(realpath --relative-to="$WORK_DIR" "$repo_dir" 2>/dev/null || \
+    REPO_DIR="$repo_dir" WORK_DIR="$WORK_DIR" python3 -c 'import os, os.path; print(os.path.relpath(os.environ["REPO_DIR"], os.environ["WORK_DIR"]))')
 
-  # フルパスをエンコードして一意なファイル名を生成
-  local relative_path="${repo_dir/#$HOME/~}"
-  local safe_name="${relative_path//\//_}"
-  local output_file="$tmpdir/${safe_name}.txt"
+  # 並列実行時の衝突を避けるため一意な一時ファイルを使う
+  local output_file
+  output_file=$(mktemp "$tmpdir/repo.XXXXXX") || return
 
   # リモート情報を更新（リポジトリ単位で1回だけ）
   git -C "$repo_dir" fetch --quiet 2>/dev/null
@@ -280,9 +280,28 @@ process_repo() {
     | sed -n 's/^worktree //p' \
     | while IFS= read -r wt; do
         [[ -z "$wt" ]] && continue
+        # find と同じ除外パターンを worktree パスにも適用
+        if [[ -n "$EXCLUDE_PATTERNS_STR" ]]; then
+          skip=false
+          while IFS= read -r pat; do
+            [[ -z "$pat" ]] && continue
+            case "$wt/" in
+              $pat) skip=true; break ;;
+            esac
+          done <<< "$EXCLUDE_PATTERNS_STR"
+          [[ "$skip" == true ]] && continue
+        fi
         process_worktree "$wt" "$repo_dir" "$repo_name" "$repo_stash"
       done > "$output_file"
 }
+
+# 除外パターンを worktree フィルタ用にサブシェルへ渡す（改行区切り）
+# find の -prune はメインリポジトリ探索にのみ効くため、git worktree list で
+# 列挙した worktree パスは process_repo 側で同じパターンに対して再フィルタする。
+EXCLUDE_PATTERNS_STR=""
+if [[ ${#EXCLUDE_PATTERNS[@]} -gt 0 ]]; then
+  EXCLUDE_PATTERNS_STR=$(printf '%s\n' "${EXCLUDE_PATTERNS[@]}")
+fi
 
 # 関数をエクスポート
 export -f process_repo
@@ -291,6 +310,7 @@ export -f format_age
 export tmpdir
 export WORK_DIR
 export NOW
+export EXCLUDE_PATTERNS_STR
 
 # find コマンドの引数配列を構築
 find_args=()
@@ -318,19 +338,16 @@ fi
 # 検索条件を追加（メインリポジトリの .git ディレクトリのみ。
 # worktree の .git はファイルなのでここでは拾わず、各リポジトリで列挙する）
 find_args+=("-name" ".git"
-            "-type" "d")
-
-# 除外パターンがある場合は -print を明示
-if [[ ${#EXCLUDE_PATTERNS[@]} -gt 0 ]]; then
-  find_args+=("-print")
-fi
+            "-type" "d"
+            "-print0")
 
 # データを並列で収集（12並列、メインリポジトリ単位）
-find "${find_args[@]}" | xargs -P 12 -I {} bash -c 'process_repo "$@"' _ {}
+# 空白を含むパスに対応するため NUL 区切りで受け渡す
+find "${find_args[@]}" | xargs -0 -P 12 -I {} bash -c 'process_repo "$@"' _ {}
 
 # 結果を統合（sortkey で整列。バイト順で安定させる）
 tmpfile="$tmpdir/result.tsv"
-cat "$tmpdir"/*.txt 2>/dev/null | LC_ALL=C sort > "$tmpfile"
+cat "$tmpdir"/repo.* 2>/dev/null | LC_ALL=C sort > "$tmpfile"
 
 # 列名
 headers=("Repository" "Branch" "Changes" "Remote" "Stash" "Last")
