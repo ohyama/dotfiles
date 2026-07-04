@@ -26,7 +26,7 @@ packages:
       - "copilot-cli"
       - "docker-desktop"
       - "figma"
-      - "firefox"
+      - "firefox@esr"
       - "font-hackgen"
       - "font-hackgen-nerd"
       - "google-chrome"
