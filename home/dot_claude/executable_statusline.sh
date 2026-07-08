@@ -164,14 +164,13 @@ LINE2_FIXED=65
 BARS_TOTAL=$(( HALF - LINE2_FIXED ))
 (( BARS_TOTAL < 12 )) && BARS_TOTAL=12
 
-# コンテキストバーをやや広めに、5h/7d バーは同じ幅で残りを分け合う
-CTX_W=$(( BARS_TOTAL * 2 / 5 ))
-(( CTX_W < 4 )) && CTX_W=4
-(( CTX_W > 8 )) && CTX_W=8
+# コンテキスト・5h・7d のバーはすべて同じ幅にする
+BAR_W=$(( BARS_TOTAL / 3 ))
+(( BAR_W < 3 )) && BAR_W=3
+(( BAR_W > 5 )) && BAR_W=5
 
-RATE_W=$(( (BARS_TOTAL - CTX_W) / 2 ))
-(( RATE_W < 3 )) && RATE_W=3
-(( RATE_W > 5 )) && RATE_W=5
+CTX_W=$BAR_W
+RATE_W=$BAR_W
 
 # --- 1 行目: 作業ディレクトリ + ブランチ（dirty 印） ---
 
