@@ -213,7 +213,7 @@ if [[ -n "$FH_PCT" ]]; then
   FH_BAR=$(make_bar "$FH_PCT" "$RATE_W")
   FH_TIME=""
   [[ -n "$FH_RESET" ]] && FH_TIME=" $(fmt_reset "$FH_RESET")"
-  LINE2="${LINE2}   🕔 ${FH_COLOR}${FH_BAR} ${FH_PCT}%${RESET}${FH_TIME}"
+  LINE2="${LINE2}  🕔 ${FH_COLOR}${FH_BAR} ${FH_PCT}%${RESET}${FH_TIME}"
 fi
 
 if [[ -n "$SD_PCT" ]]; then
@@ -221,7 +221,7 @@ if [[ -n "$SD_PCT" ]]; then
   SD_BAR=$(make_bar "$SD_PCT" "$RATE_W")
   SD_TIME=""
   [[ -n "$SD_RESET" ]] && SD_TIME=" $(fmt_reset "$SD_RESET")"
-  LINE2="${LINE2}   🗓️ ${SD_COLOR}${SD_BAR} ${SD_PCT}%${RESET}${SD_TIME}"
+  LINE2="${LINE2}  🗓️ ${SD_COLOR}${SD_BAR} ${SD_PCT}%${RESET}${SD_TIME}"
 fi
 
 echo -e "$LINE2"
