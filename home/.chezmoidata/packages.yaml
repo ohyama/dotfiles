@@ -1,5 +1,7 @@
 packages:
   darwin:
+    taps:
+      - "hashicorp/tap"
     brews:
       - "anyenv"
       - "awscli"
@@ -15,7 +17,7 @@ packages:
       - "neovim"
       - "ripgrep"
       - "starship"
-      - "terraform"
+      - "hashicorp/tap/terraform"
       - "tree"
       - "wget"
     casks:

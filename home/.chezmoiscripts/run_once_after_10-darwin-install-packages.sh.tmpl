@@ -9,7 +9,16 @@ if [ -d "/Applications/Xcode.app" ] && ! xcodebuild -license check 2>/dev/null; 
 fi
 
 # Homebrew
+# サードパーティ tap は $HOMEBREW_REQUIRE_TAP_TRUST 環境下で信頼が必要
+{{ range .packages.darwin.taps -}}
+brew trust --tap {{ . | quote }}
+{{ end -}}
 brew bundle --file=/dev/stdin <<EOF
+
+## taps
+{{ range .packages.darwin.taps -}}
+tap {{ . | quote }}
+{{ end -}}
 
 ## brews
 {{ range .packages.darwin.brews -}}
