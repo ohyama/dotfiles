@@ -32,22 +32,22 @@
     //     "showInMenuBar" : true,
     "sound": "Blow"
     //     "unreadPaneRing" : true
-  }
+  },
 
-  //   "sidebar" : {
-  //     "branchLayout" : "vertical",
-  //     "hideAllDetails" : false,
-  //     "openPortLinksInCmuxBrowser" : true,
-  //     "openPullRequestLinksInCmuxBrowser" : true,
-  //     "showBranchDirectory" : true,
-  //     "showCustomMetadata" : true,
-  //     "showLog" : true,
-  //     "showNotificationMessage" : true,
-  //     "showPorts" : true,
-  //     "showProgress" : true,
-  //     "showPullRequests" : true,
-  //     "showSSH" : true
-  //   },
+  "sidebar": {
+    //     "branchLayout" : "vertical",
+    //     "hideAllDetails" : false,
+    "openPortLinksInCmuxBrowser": false,
+    "openPullRequestLinksInCmuxBrowser": false,
+    //     "showBranchDirectory" : true,
+    //     "showCustomMetadata" : true,
+    //     "showLog" : true,
+    //     "showNotificationMessage" : true,
+    //     "showPorts" : true,
+    //     "showProgress" : true,
+    //     "showPullRequests" : true,
+    //     "showSSH" : true
+  },
 
   //   "workspaceColors" : {
   //     "colors" : {
@@ -96,28 +96,28 @@
   //     ]
   //   },
 
-  //   "browser" : {
-  //     "defaultSearchEngine" : "google",
-  //     "hostsToOpenInEmbeddedBrowser" : [
-  //
-  //     ],
-  //     "insecureHttpHostsAllowedInEmbeddedBrowser" : [
-  //       "localhost",
-  //       "127.0.0.1",
-  //       "::1",
-  //       "0.0.0.0",
-  //       "*.localtest.me"
-  //     ],
-  //     "interceptTerminalOpenCommandInCmuxBrowser" : true,
-  //     "openTerminalLinksInCmuxBrowser" : true,
-  //     "reactGrabVersion" : "0.1.29",
+  "browser": {
+    //     "defaultSearchEngine" : "google",
+    //     "hostsToOpenInEmbeddedBrowser" : [
+    //
+    //     ],
+    //     "insecureHttpHostsAllowedInEmbeddedBrowser" : [
+    //       "localhost",
+    //       "127.0.0.1",
+    //       "::1",
+    //       "0.0.0.0",
+    //       "*.localtest.me"
+    //     ],
+    "interceptTerminalOpenCommandInCmuxBrowser": false,
+    "openTerminalLinksInCmuxBrowser": false,
+    //     "reactGrabVersion" : "0.1.29",
   //     "showImportHintOnBlankTabs" : true,
   //     "showSearchSuggestions" : true,
   //     "theme" : "system",
   //     "urlsToAlwaysOpenExternally" : [
   //
   //     ]
-  //   },
+  },
 
   //   "shortcuts" : {
   //     "bindings" : {
