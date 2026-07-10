@@ -18,6 +18,7 @@ packages:
       - "ripgrep"
       - "starship"
       - "hashicorp/tap/terraform"
+      - "terraform-docs"
       - "tree"
       - "wget"
     casks:
