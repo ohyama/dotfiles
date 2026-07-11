@@ -1,9 +1,4 @@
 {
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/statusline.sh",
-    "refreshInterval": 60
-  },
   "permissions": {
     "allow": [
       "Bash(git checkout:*)",
@@ -12,5 +7,10 @@
       "mcp__notionApi__API-retrieve-a-page",
       "mcp__notionApi__API-get-block-children"
     ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh",
+    "refreshInterval": 60
   }
 }
