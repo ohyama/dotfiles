@@ -3,7 +3,7 @@
 # Claude Code のカスタムステータスラインスクリプト
 #
 # stdin から JSON セッションデータを受け取り、2 行構成で以下を表示します。
-#   1 行目: 作業ディレクトリ、git ブランチ（dirty 印）、モデル・effort
+#   1 行目: 作業ディレクトリ、git ブランチ（dirty 印）、セッション累計コスト
 #   2 行目: コンテキスト使用率（バー + % + トークン数）、
 #           5h / 7d レート制限使用率（バー + % + リセットまでの残り時間）
 #
@@ -140,6 +140,7 @@ shorten_dir() {
 MODEL_ID=$(echo "$input" | jq -r '.model.id // ""')
 EFFORT=$(echo "$input" | jq -r '.effort.level // ""')
 CWD=$(echo "$input" | jq -r '.workspace.current_dir // .cwd // ""')
+COST=$(echo "$input" | jq -r '.cost.total_cost_usd // 0')
 CTX_PCT=$(echo "$input" | jq -r '.context_window.used_percentage // 0')
 CTX_PCT=$(printf '%.0f' "$CTX_PCT")
 CTX_USED=$(echo "$input" | jq -r '.context_window.total_input_tokens // 0')
@@ -196,6 +197,9 @@ if GIT_OPTIONAL_LOCKS=0 git -C "$CWD" rev-parse --git-dir > /dev/null 2>&1; then
 
   LINE1="${LINE1}  🌿 ${BRANCH}${changes:+ }${changes}"
 fi
+
+# セッション累計コストを末尾に追加（$X.XX 表記）
+LINE1="${LINE1}  💰 \$$(printf '%.2f' "$COST")"
 
 echo -e "$LINE1"
 
