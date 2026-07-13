@@ -26,7 +26,6 @@ packages:
       - "aws-vpn-client"
       - "claude"
       - "cmux"
-      - "coderabbit"
       - "copilot-cli"
       - "docker-desktop"
       - "figma"
