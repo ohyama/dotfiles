@@ -4,6 +4,7 @@
 # Xcode ライセンスが未承認の場合は最初にパスワードを確認
 SUDO_PASSWORD=""
 if [ -d "/Applications/Xcode.app" ] && ! xcodebuild -license check 2>/dev/null; then
+  echo "Xcode のライセンス承認のためパスワードを入力してください。" >&2
   read -r -s -p "[sudo] password for $(whoami): " SUDO_PASSWORD
   echo
 fi
