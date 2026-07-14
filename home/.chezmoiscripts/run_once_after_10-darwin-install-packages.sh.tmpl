@@ -1,6 +1,16 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
+# 管理者権限を必要とするインストールと設定のため、sudo の認証を維持
+echo "アプリケーションのインストールのため、管理者パスワードを入力してください。" >&2
+sudo -v || exit 1
+while true; do
+  sudo -n -v
+  sleep 60
+done 2>/dev/null &
+SUDO_KEEPALIVE_PID=$!
+trap 'kill "$SUDO_KEEPALIVE_PID" 2>/dev/null || true' EXIT
+
 # Homebrew
 # サードパーティ tap は $HOMEBREW_REQUIRE_TAP_TRUST 環境下で信頼が必要
 {{ range .packages.darwin.taps -}}
@@ -33,11 +43,7 @@ EOF
 # Xcode
 if [ -d "/Applications/Xcode.app" ]; then
   if ! xcodebuild -license check 2>/dev/null; then
-    echo "Xcode のライセンス承認のためパスワードを入力してください。" >&2
-    read -r -s -p "[sudo] password for $(whoami): " SUDO_PASSWORD
-    echo
-    printf '%s\n' "$SUDO_PASSWORD" | sudo -S xcodebuild -license accept 2>/dev/null || true
-    unset SUDO_PASSWORD
+    sudo xcodebuild -license accept 2>/dev/null || true
   fi
   xcodebuild -runFirstLaunch 2>/dev/null || true
   if ! xcrun simctl list runtimes 2>/dev/null | grep -q "iOS"; then
