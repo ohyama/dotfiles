@@ -8,7 +8,6 @@ status_line = [
   "model-with-reasoning",
   "fast-mode",
   "approval-mode",
-  "sandbox-mode",
   "git-branch",
   "context-remaining",
   "five-hour-limit",
