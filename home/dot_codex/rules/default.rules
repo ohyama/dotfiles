@@ -81,10 +81,16 @@ prefix_rule(
     pattern = [
         "docker",
         "compose",
-        ["version", "config", "ps", "logs", "up"],
+        ["version", "config", "ps", "logs"],
     ],
     decision = "allow",
-    justification = "Allow inspecting and starting Docker Compose projects",
+    justification = "Allow inspecting Docker Compose projects",
+)
+
+prefix_rule(
+    pattern = ["docker", "compose", "up", "-d"],
+    decision = "allow",
+    justification = "Allow starting Docker Compose projects in detached mode",
 )
 
 # npm
