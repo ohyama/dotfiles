@@ -1,0 +1,99 @@
+# GitHub CLI
+prefix_rule(
+    pattern = ["gh", "issue", ["list", "view"]],
+    decision = "allow",
+    justification = "Allow listing and viewing GitHub issues",
+)
+
+prefix_rule(
+    pattern = ["gh", "pr", ["create", "list", "view"]],
+    decision = "allow",
+    justification = "Allow creating, listing, and viewing GitHub pull requests",
+)
+
+prefix_rule(
+    pattern = ["gh", "pr", "comment"],
+    decision = "allow",
+    justification = "Allow commenting on GitHub pull requests",
+)
+
+prefix_rule(
+    pattern = ["gh", "repo", "view"],
+    decision = "allow",
+    justification = "Allow viewing GitHub repositories",
+)
+
+# Git
+prefix_rule(
+    pattern = [
+        "git",
+        [
+            "add",
+            "checkout",
+            "commit",
+            "diff",
+            "fetch",
+            "log",
+            "push",
+            "stash",
+            "status",
+        ],
+    ],
+    decision = "allow",
+    justification = "Allow commonly used Git commands",
+)
+
+prefix_rule(
+    pattern = ["git", "gtr", "new"],
+    decision = "allow",
+    justification = "Allow creating a worktree with git-worktree-runner",
+)
+
+prefix_rule(
+    pattern = ["git", "gtr", ["list", "rm", "clean"]],
+    decision = "allow",
+    justification = "Allow listing, removing, and cleaning git-worktree-runner worktrees",
+)
+
+prefix_rule(
+    pattern = ["git-gtr", "-v"],
+    decision = "allow",
+    justification = "Allow checking the installed git-worktree-runner version",
+)
+
+prefix_rule(
+    pattern = ["gtr", "cd"],
+    decision = "allow",
+    justification = "Allow changing to a git-worktree-runner worktree",
+)
+
+# npm
+prefix_rule(
+    pattern = [
+        "npm",
+        ["audit", "ci", "install", "ls", "outdated", "update"],
+    ],
+    decision = "allow",
+    justification = "Allow npm dependency commands",
+)
+
+prefix_rule(
+    pattern = [
+        "npm",
+        "run",
+        [
+            "build",
+            "check",
+            "dev",
+            "format",
+            "format:fix",
+            "lint",
+            "lint:fix",
+            "lint:style",
+            "lint:style:fix",
+            "test",
+        ],
+    ],
+    decision = "allow",
+    justification = "Allow common npm scripts",
+)

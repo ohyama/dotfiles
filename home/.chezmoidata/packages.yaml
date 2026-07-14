@@ -24,8 +24,10 @@ packages:
     casks:
       - "1password"
       - "aws-vpn-client"
+      - "chatgpt"
       - "claude"
       - "cmux"
+      - "codex"
       - "copilot-cli"
       - "docker-desktop"
       - "figma"
