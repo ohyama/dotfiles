@@ -87,4 +87,7 @@ if [ ! -d "${XDG_CONFIG_HOME:-${HOME}/.config}/nvim" ]; then
   git clone https://github.com/LazyVim/starter "${XDG_CONFIG_HOME:-${HOME}/.config}/nvim"
   rm -rf "${XDG_CONFIG_HOME:-${HOME}/.config}/nvim/.git"
 fi
+
+# Hasura CLI
+curl -L https://github.com/hasura/graphql-engine/raw/stable/cli/get.sh | bash
 {{ end -}}
