@@ -13,6 +13,7 @@
       "Bash(git diff:*)",
       "Bash(git fetch:*)",
       "Bash(git gtr new:*)",
+      "Bash(git-gtr -v)",
       "Bash(gtr cd:*)",
       "Bash(git log:*)",
       "Bash(git push:*)",

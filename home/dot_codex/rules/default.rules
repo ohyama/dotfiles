@@ -44,6 +44,18 @@ prefix_rule(
 )
 
 prefix_rule(
+    pattern = ["git", "gtr", ["list", "rm", "clean"]],
+    decision = "allow",
+    justification = "Allow listing, removing, and cleaning git-worktree-runner worktrees",
+)
+
+prefix_rule(
+    pattern = ["git-gtr", "-v"],
+    decision = "allow",
+    justification = "Allow checking the installed git-worktree-runner version",
+)
+
+prefix_rule(
     pattern = ["gtr", "cd"],
     decision = "allow",
     justification = "Allow changing to a git-worktree-runner worktree",
