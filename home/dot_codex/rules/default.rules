@@ -12,6 +12,12 @@ prefix_rule(
 )
 
 prefix_rule(
+    pattern = ["gh", "pr", "comment"],
+    decision = "allow",
+    justification = "Allow commenting on GitHub pull requests",
+)
+
+prefix_rule(
     pattern = ["gh", "repo", "view"],
     decision = "allow",
     justification = "Allow viewing GitHub repositories",
