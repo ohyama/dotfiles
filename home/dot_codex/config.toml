@@ -3,6 +3,7 @@ url = "https://mcp.notion.com/mcp"
 default_tools_approval_mode = "writes"
 
 [tui]
+terminal_title = ["spinner", "thread"]
 status_line = [
   "model-with-reasoning",
   "fast-mode",
