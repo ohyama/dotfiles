@@ -67,6 +67,26 @@ prefix_rule(
     justification = "Allow changing to a git-worktree-runner worktree",
 )
 
+# Docker
+prefix_rule(
+    pattern = [
+        "docker",
+        ["version", "info", "ps", "images", "logs"],
+    ],
+    decision = "allow",
+    justification = "Allow inspecting Docker resources",
+)
+
+prefix_rule(
+    pattern = [
+        "docker",
+        "compose",
+        ["version", "config", "ps", "logs", "up"],
+    ],
+    decision = "allow",
+    justification = "Allow inspecting and starting Docker Compose projects",
+)
+
 # npm
 prefix_rule(
     pattern = [
