@@ -89,5 +89,5 @@ if [ ! -d "${XDG_CONFIG_HOME:-${HOME}/.config}/nvim" ]; then
 fi
 
 # Hasura CLI
-curl -L https://github.com/hasura/graphql-engine/raw/stable/cli/get.sh | bash
+curl -fL https://github.com/hasura/graphql-engine/raw/stable/cli/get.sh | INSTALL_PATH="$HOME/.local/bin" bash
 {{ end -}}
