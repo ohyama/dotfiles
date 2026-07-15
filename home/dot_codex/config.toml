@@ -14,3 +14,6 @@ status_line = [
   "weekly-limit",
   "current-dir",
 ]
+
+[notice]
+hide_full_access_warning = true
