@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
+## User-local binaries
+export PATH="$HOME/.local/bin:$PATH"
+
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -158,9 +161,6 @@ export PATH="$HOME/.anyenv/envs/nodenv/shims:$PATH"
 _gtr_init="${XDG_CACHE_HOME:-$HOME/.cache}/gtr/init-gtr.zsh"
 [[ -f "$_gtr_init" ]] || eval "$(git gtr init zsh)" || true
 source "$_gtr_init" 2>/dev/null || true; unset _gtr_init
-
-## Claude Code
-export PATH="$HOME/.local/bin:$PATH"
 
 {{- if ne (env "MANAGED_DEVCONTAINER_BY_OHYAMA") "true" }}
 ## Notion MCP

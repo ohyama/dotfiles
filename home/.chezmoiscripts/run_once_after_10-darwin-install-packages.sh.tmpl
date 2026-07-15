@@ -1,5 +1,6 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
+set -eo pipefail
 
 # 管理者権限を必要とするインストールと設定のため、sudo の認証を維持
 echo "アプリケーションのインストールのため、管理者パスワードを入力してください。" >&2
@@ -46,7 +47,7 @@ if [ -d "/Applications/Xcode.app" ]; then
     sudo xcodebuild -license accept 2>/dev/null || true
   fi
   xcodebuild -runFirstLaunch 2>/dev/null || true
-  if ! xcrun simctl list runtimes 2>/dev/null | grep -q "iOS"; then
+  if ! xcrun simctl list runtimes 2>/dev/null | grep "iOS" >/dev/null; then
     xcodebuild -downloadPlatform iOS 2>/dev/null || true
   fi
 fi
@@ -65,7 +66,7 @@ fi
 
 # Node.js
 NODE_VERSION=$(cat "{{ .chezmoi.sourceDir }}/../.node-version")
-if ! nodenv versions --bare | grep -q "$NODE_VERSION"; then
+if ! nodenv versions --bare | grep -Fx "$NODE_VERSION" >/dev/null; then
   nodenv install "$NODE_VERSION"
   nodenv global "$NODE_VERSION"
 fi
@@ -87,4 +88,7 @@ if [ ! -d "${XDG_CONFIG_HOME:-${HOME}/.config}/nvim" ]; then
   git clone https://github.com/LazyVim/starter "${XDG_CONFIG_HOME:-${HOME}/.config}/nvim"
   rm -rf "${XDG_CONFIG_HOME:-${HOME}/.config}/nvim/.git"
 fi
+
+# Hasura CLI
+curl -fL https://github.com/hasura/graphql-engine/raw/stable/cli/get.sh | PATH="$HOME/.local/bin:$PATH" INSTALL_PATH="$HOME/.local/bin" bash
 {{ end -}}
