@@ -1,5 +1,6 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
+set -eo pipefail
 
 # 管理者権限を必要とするインストールと設定のため、sudo の認証を維持
 echo "アプリケーションのインストールのため、管理者パスワードを入力してください。" >&2
