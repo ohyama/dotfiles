@@ -35,6 +35,68 @@
 
 ## Git の操作
 
+### コミット規約の優先順位
+
+- ユーザーまたはプロジェクトに個別のコミット規約がある場合、その規約を優先すること
+  - リポジトリ内の `AGENTS.md`、開発ドキュメント、commitlint 設定、コミット支援ツールの設定を含む
+- 個別のコミット規約で定義されていない項目に、以下の共通規約を適用すること
+
+### コミットの単位
+
+- 1 つのコミットを 1 つの変更目的で構成すること
+- コミットの件名で全変更を説明できない場合、コミットを分けること
+- 独立してレビューまたは取り消しできる変更を分けること
+- 同じ変更目的に必要な実装、テスト、コメント、ドキュメントを同じコミットに含めること
+- 分けると各コミットが単独で成立しない変更を同じコミットに含めること
+
+### コミットメッセージ
+
+- [Conventional Commits 1.0.0](https://www.conventionalcommits.org/ja/v1.0.0/) に従うこと
+  - `<type>: <subject>` の形式
+- `type` に一般的な値を使用すること
+  - `feat`、`fix`、`docs`、`style`、`refactor`、`perf`、`test`、`build`、`ci`、`chore`、`revert`
+- `subject` に変更内容を簡潔に記述すること
+
+#### body
+
+- 件名との間に空行を 1 行入れること
+- 変更内容を簡潔な箇条書きで記述すること
+
+#### footer
+
+##### 対象
+
+- コミットに含まれる変更を作成した AI エージェントを共同作者として追加すること
+- 質問への回答、調査、レビューだけに使った AI エージェントは追加しないこと
+- AI エージェント自身がコミットの作者として記録される場合、その AI エージェントは共同作者として追加しないこと
+
+##### 書式
+
+- `Co-authored-by: <名前> <メールアドレス>` の形式で記述すること
+- body との間に空行を入れること
+- AI エージェントごとに 1 行書くこと
+- 複数の `Co-authored-by:` の間に空行を入れないこと
+
+##### AI エージェントごとの値
+
+| AI エージェント | footer                                           |
+| --------------- | ------------------------------------------------ |
+| Claude Code     | `Co-authored-by: Claude <noreply@anthropic.com>` |
+| Codex           | `Co-authored-by: Codex <noreply@openai.com>`     |
+| GitHub Copilot  | `Co-authored-by: Copilot <copilot@github.com>`   |
+
+#### 記述例
+
+```text
+docs: コミット規約を更新
+
+- 本文の規則を追加
+- AI エージェントの共同作者情報を追加
+
+Co-authored-by: Claude <noreply@anthropic.com>
+Co-authored-by: Codex <noreply@openai.com>
+```
+
 ### git worktree の操作
 
 - gtr コマンドがインストールされている場合は、`git gtr` コマンドを使用してワークツリーを操作すること
