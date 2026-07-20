@@ -2,6 +2,7 @@ packages:
   darwin:
     taps:
       - "hashicorp/tap"
+      - "terraform-linters/tap"
     brews:
       - "anyenv"
       - "awscli"
@@ -45,6 +46,7 @@ packages:
       - "slack"
       - "spotify"
       - "tableplus"
+      - "terraform-linters/tap/tflint"
       - "visual-studio-code"
       - "windows-app"
     mas:
