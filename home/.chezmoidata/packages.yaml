@@ -4,6 +4,7 @@ packages:
       - "hashicorp/tap"
       - "terraform-linters/tap"
     brews:
+      - "actionlint"
       - "anyenv"
       - "awscli"
       - "chezmoi"
