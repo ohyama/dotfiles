@@ -153,9 +153,6 @@ fi
 {{- if eq .chezmoi.os "darwin" }}
 ## anyenv
 eval "$(anyenv init -)"
-
-## nodenv with anyenv
-export PATH="$HOME/.anyenv/envs/nodenv/shims:$PATH"
 {{- end }}
 
 # git-worktree-runner (gtr)
