@@ -72,13 +72,11 @@ if ! nodenv versions --bare | grep -Fx "$NODE_VERSION" >/dev/null; then
 fi
 
 # Claude Code
-curl -fsSL https://claude.ai/install.sh | bash
-
-# Claude Code / Notion API の MCP サーバーを登録
-# run_once は内容が変わると再実行されるため、削除してから追加して冪等にする
 CLAUDE_BIN="$HOME/.local/bin/claude"
-"$CLAUDE_BIN" mcp remove --scope user notionApi >/dev/null 2>&1 || true
-"$CLAUDE_BIN" mcp add --scope user --transport stdio notionApi -- npx -y @notionhq/notion-mcp-server
+if [ ! -x "$CLAUDE_BIN" ]; then
+  curl -fsSL https://claude.ai/install.sh | bash
+  "$CLAUDE_BIN" mcp add --scope user --transport stdio notionApi -- npx -y @notionhq/notion-mcp-server
+fi
 
 # git-worktree-runner
 GWT_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/git-worktree-runner"
