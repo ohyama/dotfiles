@@ -71,10 +71,12 @@ if ! nodenv versions --bare | grep -Fx "$NODE_VERSION" >/dev/null; then
   nodenv global "$NODE_VERSION"
 fi
 
-# npm global packages
-{{ range .packages.darwin.npms -}}
-npm install -g {{ . | quote }}
-{{ end -}}
+# Claude Code
+CLAUDE_BIN="$HOME/.local/bin/claude"
+if [ ! -x "$CLAUDE_BIN" ]; then
+  curl -fsSL https://claude.ai/install.sh | bash
+  "$CLAUDE_BIN" mcp add --scope user --transport stdio notionApi -- npx -y @notionhq/notion-mcp-server
+fi
 
 # git-worktree-runner
 GWT_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/git-worktree-runner"

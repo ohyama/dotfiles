@@ -24,8 +24,3 @@ read -p "Press Enter to continue."
 
 # Install dotfiles
 chezmoi init --apply ohyama
-
-# Claude Code / Add MCP server for Notion API
-if command -v claude &> /dev/null; then
-  claude mcp add --scope user --transport stdio notionApi -- npx -y @notionhq/notion-mcp-server
-fi
