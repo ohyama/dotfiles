@@ -61,3 +61,30 @@ This repository uses the following tools:
 ```sh
 npm ci
 ```
+
+## Install scripts
+
+As a countermeasure against supply chain attacks, install scripts of dependencies (`preinstall`, `install`, `postinstall`, and also `prepare` for non-registry dependencies) require explicit approval.
+
+- Approved and denied packages are recorded in `allowScripts` in `package.json`
+- `strict-allow-scripts=true` in `.npmrc` makes the installation fail when a package has unreviewed install scripts
+- Only scripts of dependencies are covered, so the `prepare` script of this repository is not affected
+- This requires npm 11.16.0 or later — use the version in `.node-version`
+
+When `npm install` fails with `ESTRICTALLOWSCRIPTS` after adding a package, deny it first and confirm that the tooling still works.
+
+```sh
+npm deny-scripts <package>
+```
+
+Approve it only when the tooling breaks while denied. `npm approve-scripts` cannot change an entry that is already denied, so remove the entry from `allowScripts` in `package.json` before running it.
+
+```sh
+npm approve-scripts <package>
+```
+
+Packages with unreviewed install scripts can be listed with the following command.
+
+```sh
+npm approve-scripts --allow-scripts-pending
+```
