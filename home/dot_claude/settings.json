@@ -46,6 +46,8 @@
       "Bash(npm run lint:style:fix:*)",
       "Bash(npm run test:*)",
       "Bash(npm update:*)",
+      "Edit(~/**/*-worktrees/**)",
+      "Read(~/**/*-worktrees/**)",
       "mcp__claude_ai_Notion__notion-download-attachment",
       "mcp__claude_ai_Notion__notion-fetch",
       "mcp__claude_ai_Notion__notion-get-comments",
