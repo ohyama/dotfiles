@@ -52,9 +52,12 @@
       "Bash(npm update:*)",
       "Edit(~/**/*-worktrees/**)",
       "Read(~/**/*-worktrees/**)",
+      "mcp__claude_ai_Notion__notion-ai-search",
       "mcp__claude_ai_Notion__notion-download-attachment",
       "mcp__claude_ai_Notion__notion-fetch",
       "mcp__claude_ai_Notion__notion-get-comments",
+      "mcp__claude_ai_Notion__notion-get-users",
+      "mcp__claude_ai_Notion__notion-list-recent-pages",
       "mcp__claude_ai_Notion__notion-query-data-sources",
       "mcp__claude_ai_Notion__notion-search"
     ]
