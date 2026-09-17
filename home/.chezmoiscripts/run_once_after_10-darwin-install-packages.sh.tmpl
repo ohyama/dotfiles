@@ -52,6 +52,13 @@ if [ -d "/Applications/Xcode.app" ]; then
   fi
 fi
 
+# cmux
+CMUX_BIN="/Applications/cmux.app/Contents/Resources/bin/cmux"
+CMUX_THEME_CONFIG="$HOME/Library/Application Support/com.cmuxterm.app/config.ghostty"
+if [ -x "$CMUX_BIN" ] && [ ! -s "$CMUX_THEME_CONFIG" ]; then
+  "$CMUX_BIN" themes set --light "Apple System Colors" --dark "Apple System Colors"
+fi
+
 # anyenv
 eval "$(anyenv init -)"
 if [ ! -d "${XDG_CONFIG_HOME:-${HOME}/.config}/anyenv/anyenv-install" ]; then
