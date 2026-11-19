@@ -1,9 +1,4 @@
 {
-  "attribution": {
-    "commit": "Co-authored-by: Claude <noreply@anthropic.com>",
-    "sessionUrl": false
-  },
-  "idleCompaction": false,
   "permissions": {
     "allow": [
       "Bash(docker compose config:*)",
