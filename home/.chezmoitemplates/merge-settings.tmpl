@@ -1,0 +1,45 @@
+{{- /*
+  手元の設定ファイルに、ソースで管理する値を反映します。
+  modify テンプレートから、次の値を dict で渡して呼び出します。
+    managed: ソースで管理する値
+    stdin: 手元のファイルの内容（.chezmoi.stdin）
+    format: ファイルの形式（"json" または "toml"）
+  managed にないキーは、手元の値を残します。
+  オブジェクト（テーブル）の値は、2 階層目のキーの単位で置き換えます。
+*/ -}}
+
+{{- /* 手元のファイルを読み込む（ファイルがなければ空にする） */ -}}
+{{- $config := dict -}}
+{{- if .stdin -}}
+{{-   if eq .format "json" -}}
+{{-     $config = fromJson .stdin -}}
+{{-   else -}}
+{{-     $config = fromToml .stdin -}}
+{{-   end -}}
+{{- end -}}
+
+{{- /* 反映する前の状態を、文字列にして控える */ -}}
+{{- $before := toJson $config -}}
+
+{{- /* ソースの値を、1 キーずつ反映する */ -}}
+{{- /* 両方がオブジェクトなら、手元のほかのキーを残すため、中のキーを 1 つずつ上書きする */ -}}
+{{- /* それ以外は、キーごと上書きする */ -}}
+{{- range $key, $value := .managed -}}
+{{-   if and (kindIs "map" $value) (kindIs "map" (get $config $key)) -}}
+{{-     range $subKey, $subValue := $value -}}
+{{-       $config = setValueAtPath (list $key $subKey) $subValue $config -}}
+{{-     end -}}
+{{-   else -}}
+{{-     $config = setValueAtPath (list $key) $value $config -}}
+{{-   end -}}
+{{- end -}}
+
+{{- /* 変化がなければ手元の内容をそのまま、あれば形式に合わせて書き直す */ -}}
+{{- /* 書き直すと並び順や空行が変わり、chezmoi status に差が出続けるため */ -}}
+{{- if eq $before (toJson $config) -}}
+{{-   $.stdin -}}
+{{- else if eq $.format "json" -}}
+{{-   toPrettyJson "  " $config -}}
+{{- else -}}
+{{-   toToml $config -}}
+{{- end -}}

@@ -1,9 +1,9 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- $managed := `
 {
-  "attribution": {
-    "commit": "Co-authored-by: Claude <noreply@anthropic.com>",
-    "sessionUrl": false
+  "enabledPlugins": {
+    "rally@rally-agent-kit": true
   },
-  "idleCompaction": false,
   "permissions": {
     "allow": [
       "Bash(docker compose config:*)",
@@ -67,5 +67,8 @@
     "type": "command",
     "command": "~/.claude/statusline.sh",
     "refreshInterval": 60
-  }
+  },
+  "tui": "fullscreen"
 }
+` | fromJson -}}
+{{- includeTemplate "merge-settings.tmpl" (dict "managed" $managed "stdin" .chezmoi.stdin "format" "json") -}}
