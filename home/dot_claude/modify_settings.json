@@ -67,7 +67,8 @@
     "type": "command",
     "command": "~/.claude/statusline.sh",
     "refreshInterval": 60
-  }
+  },
+  "tui": "fullscreen"
 }
 ` | fromJson -}}
 {{- includeTemplate "merge-settings.tmpl" (dict "managed" $managed "stdin" .chezmoi.stdin "format" "json") -}}
