@@ -1,0 +1,2 @@
+# chezmoi の modify テンプレートは JSON として解析できないため
+home/dot_claude/modify_settings.json

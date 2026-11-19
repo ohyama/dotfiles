@@ -1,3 +1,5 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- $managed := `
 approvals_reviewer = "auto_review"
 
 [agents]
@@ -18,3 +20,5 @@ status_line = [
 
 [notice]
 hide_full_access_warning = true
+` | fromToml -}}
+{{- includeTemplate "merge-settings.tmpl" (dict "managed" $managed "stdin" .chezmoi.stdin "format" "toml") -}}

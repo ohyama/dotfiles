@@ -1,3 +1,5 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- $managed := `
 {
   "enabledPlugins": {
     "rally@rally-agent-kit": true
@@ -67,3 +69,5 @@
     "refreshInterval": 60
   }
 }
+` | fromJson -}}
+{{- includeTemplate "merge-settings.tmpl" (dict "managed" $managed "stdin" .chezmoi.stdin "format" "json") -}}
