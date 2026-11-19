@@ -5,4 +5,4 @@
 
 [defaults]
     editor = vscode
-    ai = copilot
+    ai = claude
