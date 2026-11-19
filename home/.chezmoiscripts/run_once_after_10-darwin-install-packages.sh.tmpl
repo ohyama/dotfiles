@@ -82,7 +82,6 @@ fi
 CLAUDE_BIN="$HOME/.local/bin/claude"
 if [ ! -x "$CLAUDE_BIN" ]; then
   curl -fsSL https://claude.ai/install.sh | bash
-  "$CLAUDE_BIN" mcp add --scope user --transport stdio notionApi -- npx -y @notionhq/notion-mcp-server
 fi
 
 # git-worktree-runner
