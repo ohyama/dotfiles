@@ -1,4 +1,7 @@
 {
+  "enabledPlugins": {
+    "rally@rally-agent-kit": true
+  },
   "permissions": {
     "allow": [
       "Bash(docker compose config:*)",
