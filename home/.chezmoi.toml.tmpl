@@ -1,7 +1,2 @@
-{{- if ne (env "MANAGED_DEVCONTAINER_BY_OHYAMA") "true" }}
-[data]
-    notionToken = {{ promptStringOnce . "notionToken" "Notion API Token" | quote }}
-{{ end -}}
-
 [diff]
     pager = "delta"
